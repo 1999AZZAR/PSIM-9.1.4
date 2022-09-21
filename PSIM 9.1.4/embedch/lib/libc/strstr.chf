@@ -1,0 +1,33 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: strstr.c
+*
+* Note: (1)  ANSI C function in standard lib string.h
+*       (2)  find the first occurance of str2[] in str1[]
+*
+* History: created by Harry H. Cheng, 2/19/1994
+**********************************************************/
+char * strstr(char *s1, *s2)
+{
+  char *ss1, *ss2;  
+
+  if(s2 == NULL)        /* s2 is a NULL string */
+    return s1;
+  if(*s2 == '\0')
+   return s1;
+  else
+  {
+    for(s1 = strchr(s1, *s2); s1 != NULL; s1++, s1 = strchr(s1, *s2))
+    {                        /* match rest of chars */
+      for(ss1 = s1, ss2 = s2; ;)
+      {
+        ss1++; ss2++;
+        if(*ss2 == '\0')
+          return s1;
+        else if(*ss1 != *ss2)
+          break;
+      }
+    }
+    return NULL;
+  }
+} 

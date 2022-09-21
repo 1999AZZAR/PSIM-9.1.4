@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<sys/times.h>
+
+clock_t times(struct tms *buffer) {
+    void *fptr;
+    clock_t retval;
+
+    fptr = dlsym(_ChSysTimes_handle, "times_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, times, buffer);
+    return retval;
+}

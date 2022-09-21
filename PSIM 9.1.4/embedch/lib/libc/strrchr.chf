@@ -1,0 +1,23 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: strrchr.c
+*
+* Note: (1)  ANSI C function in standard lib string.h
+*       (2)  find the last occurance of c in s[]
+*
+* History: created by Harry H. Cheng, 2/19/1994
+**********************************************************/
+char * strrchr(char *s, int c)
+{
+  char *ss;
+ 
+  if(s == NULL)        /* input is a NULL string */
+    return NULL;
+  else
+  {
+    for(ss = NULL;  *s != '\0'; s++)
+      if(*s == c)    /* matching */
+        ss = s;
+    return ss;          /* find the last character or NULL*/
+  }
+}

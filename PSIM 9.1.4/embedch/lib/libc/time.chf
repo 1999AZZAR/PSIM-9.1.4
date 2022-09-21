@@ -1,0 +1,20 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: time.dl
+* Purpose: ANSI C function 
+* History: created by Harry H. Cheng, 4/1/1997
+**********************************************************/
+#include <sys/types.h>
+#include <time.h>
+time_t time(time_t *tloc) {
+  void *fptr;
+  time_t retval;
+
+  fptr = dlsym(_ChTime_handle, "time_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return -1;
+  }
+  dlrunfun(fptr, &retval, time, tloc);
+  return retval;
+}

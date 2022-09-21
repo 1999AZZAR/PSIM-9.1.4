@@ -1,0 +1,35 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <string.h>
+#include <stdarg.h>
+#include <stdlib.h>
+
+char* strconcat (const char *string1, ...) {
+  unsigned int   l;
+  va_list args;
+  char   *s;
+  char   *concat;
+  int i, count;
+  
+  l = 1 + strlen (string1);
+  va_start (args, string1);
+  count = va_count(args);
+  for (i=0; i< count; i++)
+  {
+    s = va_arg (args, char*);
+    l += strlen (s);
+  }
+  va_end (args);
+
+  concat = (char *)malloc (sizeof(char)*l);
+  concat[0] = 0;
+
+  strcat (concat, string1);
+  va_start (args, string1);
+  for (i=0; i< count; i++)
+  {
+    s = va_arg (args, char*);
+    strcat (concat, s);
+  }
+  va_end (args);
+  return concat;
+}

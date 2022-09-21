@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/socket.h> 
+
+restrict SOCKET socket(int domain, int type, int protocol) {
+    void *fptr;
+    SOCKET retval;
+
+    fptr = dlsym(_ChSysSocket_handle, "socket_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, socket, domain, type, protocol);
+    return retval;
+}

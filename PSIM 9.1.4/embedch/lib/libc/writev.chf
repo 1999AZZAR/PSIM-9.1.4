@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/uio.h>
+
+int writev(int fildes, const struct iovec *iov, int iovcnt) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSysUio_handle, "writev_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, writev, fildes, iov, iovcnt);
+    return retval;
+}

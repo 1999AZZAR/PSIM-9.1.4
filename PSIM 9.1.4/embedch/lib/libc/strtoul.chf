@@ -1,0 +1,4 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+unsigned long strtoul(const char *str, char **endptr, int base) {
+  return strtoul(str, endptr, base);
+}

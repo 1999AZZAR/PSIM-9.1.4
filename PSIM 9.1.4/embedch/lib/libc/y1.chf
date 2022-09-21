@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<math.h>
+
+double y1(double x) {
+    void *fptr;
+    double retval;
+
+    fptr = dlsym(_Chmath_handle, "y1_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, y1, x);
+    return retval;
+}

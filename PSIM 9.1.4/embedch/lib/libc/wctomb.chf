@@ -1,0 +1,20 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: wctomb.dl
+* Purpose: ANSI C function 
+* History: created by Harry H. Cheng, 4/1/1997
+**********************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+int wctomb(char *s, wchar_t wchar) {
+  void *fptr;
+  int retval;
+
+  fptr = dlsym(_ChStdlib_handle, "wctomb_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return -1;
+  }
+  dlrunfun(fptr, &retval, wctomb, s, wchar);
+  return retval;
+}

@@ -1,0 +1,61 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <string.h>
+#include <stdarg.h>
+#include <stdlib.h>
+
+
+char* strjoin (const char  *separator, ...) {
+  char *string, *s;
+  va_list args;
+  unsigned int len = 0;
+  unsigned int separator_len;
+  int count, i;
+
+  if (separator == NULL)
+    separator = "";
+
+  separator_len = strlen (separator);
+
+  va_start (args, separator);
+  count = va_count (args);
+  
+  if (count>0)
+  { 
+    s = va_arg (args, char*);
+    len = strlen (s);
+
+    if (count>1)
+    {
+      for (i=0; i<count-1; i++)
+      {
+        s = va_arg (args, char*);
+        len += separator_len + strlen (s);
+      }
+    }
+    va_end (args);
+
+    string = (char *)malloc (sizeof(char)*(len+1));
+    *string = 0;
+
+    va_start (args, separator);
+
+    s = va_arg (args, char*);
+    strcat (string, s);
+    if (count>1)
+    {
+      for (i=0; i<count-1; i++)
+      {
+        s = va_arg (args, char*);
+        strcat (string, separator);
+        strcat (string, s);
+      }
+    }
+    va_end (args);
+
+  }
+  else
+    string = strdup ("");
+
+  va_end (args);
+  return string;
+}

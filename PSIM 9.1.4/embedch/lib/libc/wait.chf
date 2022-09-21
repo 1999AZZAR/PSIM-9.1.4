@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/types.h>
+#include <sys/wait.h> 
+
+pid_t wait(int *stat_loc) {
+    void *fptr;
+    pid_t retval;
+
+    fptr = dlsym(_ChSysWait_handle, "wait_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, wait, stat_loc);
+    return retval;
+}

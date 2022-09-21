@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdio.h>
+#include <stdarg.h>
+int sprintf(char *s, char *format, ...) {
+    void *fptr;
+    va_list ap_ch;
+    int retval;
+
+    va_start(ap_ch, format);
+    vsprintf(s, format, ap_ch);
+    va_end(ap_ch);
+    return retval;
+}

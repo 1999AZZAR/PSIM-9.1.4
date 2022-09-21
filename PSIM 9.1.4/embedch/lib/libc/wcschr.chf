@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+
+wchar_t *wcschr(const wchar_t *str, wchar_t c) {
+    void *fptr;
+    wchar_t *retval;
+
+    fptr = dlsym(_ChWchar_handle, "wcschr_chdl");
+    if(fptr == NULL) { 
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return NULL;
+    }
+    dlrunfun(fptr, &retval, wcschr, str, c);
+    return retval;
+}

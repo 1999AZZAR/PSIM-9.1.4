@@ -1,0 +1,24 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: strspn.c
+*
+* Note: (1)  ANSI C function in standard lib string.h
+*       (2)  find the index i of the first s[i] that matches no  s2[]
+*
+* History: created by Harry H. Cheng, 2/19/1994
+**********************************************************/
+#include <string.h>
+size_t strspn(char *s1, char *s2) {
+  char *sc1, *sc2;
+
+  if(s1 == NULL || s2 == NULL)
+   return 0;
+    
+  for(sc1 = s1; *sc1 != '\0'; sc1++)
+    for(sc2 = s2; ; ++sc2)
+      if(*sc2 == '\0')
+        return sc1-s1;
+      else if(*sc1 == *sc2)
+        break;
+  return sc1-s1;
+}

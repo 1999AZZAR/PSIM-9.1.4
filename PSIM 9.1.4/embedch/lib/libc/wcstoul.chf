@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+
+unsigned long wcstoul(const wchar_t *nptr, wchar_t **endptr, int base) {
+    void *fptr;
+    unsigned long retval;
+
+    fptr = dlsym(_ChWchar_handle, "wcstoul_chdl");
+    if(fptr == NULL) { 
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return NULL;
+    }
+    dlrunfun(fptr, &retval, wcstoul, nptr, endptr,base);
+    return retval;
+}

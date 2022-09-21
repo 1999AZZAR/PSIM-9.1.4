@@ -1,0 +1,6 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/types.h>
+#include <sys/stat.h>
+restrict mode_t umask(mode_t cmask) {
+  return umask(cmask);
+}

@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<utime.h>
+
+int utime(const char *path, const struct utimbuf *times) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChUtime_handle, "utime_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, utime, path, times);
+    return retval;
+}

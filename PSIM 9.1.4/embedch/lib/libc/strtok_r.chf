@@ -1,0 +1,38 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: strtok_r.c
+*
+* Note: (1)  find the next token in s1[] delimited by s2[].
+*            The lasts pointer is to keep track  of
+*            the next substring in which to search for the next token.
+*       (2)  strtok_r() is equivalent to ANSI C function strtok(),
+*            but strto_r() can be reentered.
+*
+* History: created by Harry H. Cheng, 2/19/1994
+**********************************************************/
+#include <string.h>
+char * strtok_r(char *s1, *s2, **lasts)
+{
+  char *sbegin, *send_;
+ 
+  if(s1 != NULL)
+     sbegin = s1;
+  else    
+     sbegin = *lasts;
+  if(sbegin == NULL)
+    return NULL;
+  sbegin += strspn(sbegin, s2);
+  if(*sbegin == '\0') /* end of string */
+  {
+    lasts = NULL;
+    return NULL;
+  }
+  send_ = strpbrk(sbegin, s2);
+  if(send_ != NULL)
+  {
+    if(*send_ != '\0')
+      *send_++ = '\0';
+  }
+  *lasts = send_;
+  return sbegin;
+}

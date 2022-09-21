@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+
+double wcstod(const wchar_t *nptr, wchar_t **endptr) {
+    void *fptr;
+    double retval;
+
+    fptr = dlsym(_ChWchar_handle, "wcstod_chdl");
+    if(fptr == NULL) { 
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return NULL;
+    }
+    dlrunfun(fptr, &retval, wcstod, nptr, endptr);
+    return retval;
+}

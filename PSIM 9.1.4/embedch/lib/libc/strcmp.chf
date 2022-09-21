@@ -1,0 +1,4 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+int strcmp(const char *s1, const char *s2) {
+    return strcmp(s1, s2);
+}

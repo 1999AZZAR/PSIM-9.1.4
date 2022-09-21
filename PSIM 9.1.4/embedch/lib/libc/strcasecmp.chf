@@ -1,0 +1,45 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Name: strcasecmp()
+%
+% Process: Compares two strings case insensitive
+%
+% Notes: (1) Input:
+%               strcmp() - two character pointers
+%
+%        (2) Computation:
+%               strcasecmp() - Compares each character in succession
+%              
+%        (3) Output:
+%               strcmp() - 0 if true, -1 if character of first string
+%                          is less than second string character, +1
+%                          if first character is greater
+%
+% History: created  by Harry H. Cheng, April 19, 1997
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+int strcasecmp(char *s1, char *s2)
+{
+   char c1, c2;
+   c1 = *s1;
+   c2 = *s2;
+   if(isalpha(c1) && islower(c1))
+     c1 = toupper(c1);
+   if(isalpha(c2) && islower(c2))
+     c2 = toupper(c2);
+
+   while(c1 == c2) {
+     if (c1 == '\0') 
+       return (0);
+     ++s1, ++s2;
+     c1 = *s1; c2 = *s2;
+     if(isalpha(c1) && islower(c1))
+       c1 = toupper(c1);
+     if(isalpha(c2) && islower(c2))
+       c2 = toupper(c2);
+   } 
+   if(c1 < c2) 
+     return -1;
+   else 
+     return +1;
+}
+

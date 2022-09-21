@@ -1,0 +1,37 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: strncasecmp.c
+*
+* Note: (1) copy compare s2[] to s1[] of max n char case insensitive
+*
+* History: created by Harry H. Cheng, 2/19/1997
+**********************************************************/
+int strncasecmp(char *s1, char *s2, int n) {
+  char c1, c2;
+  
+  if(s1 == NULL)
+    return -1;
+  else if(s2 == NULL)
+  {
+    return 1;
+  }
+  else
+  {
+    for(c1 = *s1, c2 = *s2; 0 < n; n--) {
+      if(isalpha(c1) && islower(c1))
+        c1 = toupper(c1);
+      if(isalpha(c2) && islower(c2))
+        c2 = toupper(c2);
+      if(c1 != c2)
+      {
+        if(c1 < c2) return -1;
+        else return 1;
+      }
+      else if(c1 == '\0')
+        return 0;
+      s1++; s2++;
+      c1 = *s1; c2 = *s2; 
+    }
+  }
+  return 0;
+}

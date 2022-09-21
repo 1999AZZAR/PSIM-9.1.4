@@ -1,0 +1,20 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: strdup.dl
+* Purpose: C function 
+* History: created by Harry H. Cheng, 4/1/1997
+**********************************************************/
+#include <stdio.h>
+#include <string.h>
+char * strdup(char * s) {
+  void *fptr;
+  char * retval;
+
+  fptr = dlsym(_ChString_handle, "strdup_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return NULL;
+  }
+  dlrunfun(fptr, &retval, strdup, s);
+  return retval;
+}

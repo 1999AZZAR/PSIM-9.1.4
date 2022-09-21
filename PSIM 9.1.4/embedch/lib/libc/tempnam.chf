@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<stdio.h>
+
+char *tempnam(const char *dir, const char *pfx) {
+    void  *fptr;
+    char *retval;
+
+    fptr = dlsym(_Chstdio_handle, "tempnam_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, tempnam, dir, pfx);
+    return retval;
+}
