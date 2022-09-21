@@ -1,0 +1,2 @@
+Fgrid = 50
+LoadInductance = 3m
