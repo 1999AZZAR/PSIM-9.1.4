@@ -1,0 +1,3 @@
+(global)Vstep=0.5v
+Freq=100k
+(global)Vref=3.3V

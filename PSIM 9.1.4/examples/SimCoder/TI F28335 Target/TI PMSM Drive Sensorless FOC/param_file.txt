@@ -1,0 +1,19 @@
+PI=3.14159265
+POLES=8                            // Number of poles
+BASE_VOLTAGE=31.76    // Base peak phase voltage (volt)
+BASE_CURRENT=10         // Base peak phase current (amp)
+BASE_FREQ=200             // Base electrical frequency (Hz)
+RS=0.79                          // Stator resistance (ohm)
+LS=0.0012                       // Stator inductance (Hr)
+
+MotorFreq=10K          // Motor PWM switching frequency, in Hz
+SpdFreq=1K               // Speed loop frequency
+T=1.0/MotorFreq
+MinDelta = 0.0000305    // Speed change step
+
+(Global)START=0           // 0: Disable PWM, 1: Enable PWM
+(Global)LOOP_I=0         // 0: open loop, 1: close current loop.
+(Global)LOOP_SP=0      // 0: open loop, 1: close speed loop.
+
+SpeedRef1 = 0.25       // Speed reference at the start. 0.25 pu
+IqRef1 = 0.15             // iq reference at the start 0.05 pu
