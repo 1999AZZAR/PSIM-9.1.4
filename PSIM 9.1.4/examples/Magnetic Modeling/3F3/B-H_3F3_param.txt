@@ -1,0 +1,5 @@
+Turns=6
+AL=8.5u
+Ac=58u
+Length=57m
+

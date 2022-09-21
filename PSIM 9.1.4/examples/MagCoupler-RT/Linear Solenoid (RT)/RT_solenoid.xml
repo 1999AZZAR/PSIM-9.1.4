@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="shift-JIS" ?>
+<CircuitElement file="RT_solenoid.rtt" name="MagCoupler-RT">
+	<NetlistElement type="JMAGRT" element="Linear Solenoid" >
+		<Netlist FEM_coil_number="1" shaft_number="1">
+			<Element type="R_FEM" name="RA" node1="1" node2="2">
+				<parameter name="phase">1</parameter>
+			</Element>
+			<Element type="L_FEM" name="LA" node1="2" node2="3">
+				<parameter name="phase">1</parameter>
+			</Element>
+			<Element type="V_FEM" name="VA" node1="3" node2="4">
+				<parameter name="phase">1</parameter>
+			</Element>
+			<Element type="SHAFT" name="shaft1" node1="5" node2="6"></Element>
+		</Netlist>
+		<Interface elec_node_number="1" mech_node_number="2">
+			<Port type="ELEC" name="Phase_AIN" node="1"></Port>
+			<Port type="ELEC" name="Phase_AOUT" node="4"></Port>
+			<Port type="MECH" name="M+" node="5"></Port>
+			<Port type="MECH" name="M-" node="6"></Port>
+		</Interface>
+		<parameter name="pole_number">0</parameter>
+	</NetlistElement>
+</CircuitElement>

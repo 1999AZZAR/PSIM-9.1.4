@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="shift-JIS" ?>
+<CircuitElement file="RT_LSM.rtt" name="MagCoupler-RT">
+	<NetlistElement type="JMAGRT" element="Linear Synchronous Machine" >
+		<Netlist FEM_coil_number="3" shaft_number="1">
+			<Element type="R_FEM" name="RU" node1="1" node2="4">
+				<parameter name="phase">1</parameter>
+			</Element>
+			<Element type="R_FEM" name="RV" node1="2" node2="5">
+				<parameter name="phase">2</parameter>
+			</Element>
+			<Element type="R_FEM" name="RW" node1="3" node2="6">
+				<parameter name="phase">3</parameter>
+			</Element>
+			<Element type="L_FEM" name="LU" node1="4" node2="7">
+				<parameter name="phase">1</parameter>
+			</Element>
+			<Element type="L_FEM" name="LV" node1="5" node2="8">
+				<parameter name="phase">2</parameter>
+			</Element>
+			<Element type="L_FEM" name="LW" node1="6" node2="9">
+				<parameter name="phase">3</parameter>
+			</Element>
+			<Element type="V_FEM" name="VU" node1="7" node2="10">
+				<parameter name="phase">1</parameter>
+			</Element>
+			<Element type="V_FEM" name="VV" node1="8" node2="10">
+				<parameter name="phase">2</parameter>
+			</Element>
+			<Element type="V_FEM" name="VW" node1="9" node2="10">
+				<parameter name="phase">3</parameter>
+			</Element>
+			<Element type="SHAFT" name="shaft1" node1="11" node2="12"></Element>
+		</Netlist>
+		<Interface elec_node_number="3" mech_node_number="2">
+			<Port type="ELEC" name="Phase_U" node="1"></Port>
+			<Port type="ELEC" name="Phase_V" node="2"></Port>
+			<Port type="ELEC" name="Phase_W" node="3"></Port>
+			<Port type="MECH" name="M+" node="11"></Port>
+			<Port type="MECH" name="M-" node="12"></Port>
+		</Interface>
+		<parameter name="pole_number">0</parameter>
+	</NetlistElement>
+</CircuitElement>

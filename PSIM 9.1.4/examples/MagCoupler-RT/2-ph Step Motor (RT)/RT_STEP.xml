@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="shift-JIS" ?>
+<CircuitElement file="RT_STEP.rtt" name="MagCoupler-RT">
+	<NetlistElement type="JMAGRT" element="Step Machine" >
+		<Netlist FEM_coil_number="4" shaft_number="1">
+			<Element type="R_FEM" name="RA+" node1="1" node2="5">
+				<parameter name="phase">1</parameter>
+			</Element>
+			<Element type="R_FEM" name="RA-" node1="2" node2="6">
+				<parameter name="phase">2</parameter>
+			</Element>
+			<Element type="R_FEM" name="RB+" node1="3" node2="7">
+				<parameter name="phase">3</parameter>
+			</Element>
+			<Element type="R_FEM" name="RB-" node1="4" node2="8">
+				<parameter name="phase">4</parameter>
+			</Element>
+			<Element type="L_FEM" name="LA+" node1="5" node2="9">
+				<parameter name="phase">1</parameter>
+			</Element>
+			<Element type="L_FEM" name="LA-" node1="6" node2="10">
+				<parameter name="phase">2</parameter>
+			</Element>
+			<Element type="L_FEM" name="LB+" node1="7" node2="11">
+				<parameter name="phase">3</parameter>
+			</Element>
+			<Element type="L_FEM" name="LB-" node1="8" node2="12">
+				<parameter name="phase">4</parameter>
+			</Element>
+			<Element type="V_FEM" name="VA+" node1="9" node2="13">
+				<parameter name="phase">1</parameter>
+			</Element>
+			<Element type="V_FEM" name="VA-" node1="10" node2="14">
+				<parameter name="phase">2</parameter>
+			</Element>
+			<Element type="V_FEM" name="VB+" node1="11" node2="15">
+				<parameter name="phase">3</parameter>
+			</Element>
+			<Element type="V_FEM" name="VB-" node1="12" node2="16">
+				<parameter name="phase">4</parameter>
+			</Element>
+			<Element type="SHAFT" name="shaft1" node1="17" node2="18"></Element>
+		</Netlist>
+		<Interface elec_node_number="8" mech_node_number="2">
+			<Port type="ELEC" name="A+IN" node="1"></Port>
+			<Port type="ELEC" name="A-IN" node="2"></Port>
+			<Port type="ELEC" name="B+IN" node="3"></Port>
+			<Port type="ELEC" name="B-IN" node="4"></Port>
+			<Port type="ELEC" name="A+OUT" node="13"></Port>
+			<Port type="ELEC" name="A-OUT" node="14"></Port>
+			<Port type="ELEC" name="B+OUT" node="15"></Port>
+			<Port type="ELEC" name="B-OUT" node="16"></Port>
+			<Port type="MECH" name="M+" node="17"></Port>
+			<Port type="MECH" name="M-" node="18"></Port>
+		</Interface>
+		<parameter name="pole_number">1</parameter>
+	</NetlistElement>
+</CircuitElement>

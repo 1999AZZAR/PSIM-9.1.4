@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CircuitElement file="ipm.rtt"  name="MagCoupler-RT">
+<NetlistElement type="JMAGRT"  element="PM Synchronous Machine"  pole_number="4">
+	<Interface elec_node_number="3" mech_node_number='2'>
+		<Port type="ELEC" name="U" node="1"> </Port>
+		<Port type="ELEC" name="V" node="3"> </Port>
+		<Port type="ELEC" name="W" node="5"> </Port>
+		<Port type="MECH" name="Shaft+" node="11"> </Port>
+		<Port type="MECH" name="Shaft-" node="12"> </Port>
+	</Interface>
+	<NetList FEM_coil_number="3" shaft_number="1" >
+		<Element type="R_FEM" phase="1" name="RU" node1="1" node2="2"> </Element>
+		<Element type="R_FEM" phase="2" name="RV" node1="3" node2="4"> </Element>
+		<Element type="R_FEM" phase="3" name="RW" node1="5" node2="6"> </Element>
+		<Element type="L_FEM" phase="1" name="LU" node1="2" node2="7"> </Element>
+		<Element type="L_FEM" phase="2" name="LV" node1="4" node2="8"> </Element>
+		<Element type="L_FEM" phase="3" name="LW" node1="6" node2="9"> </Element>
+		<Element type="V_FEM" phase="1" name="VU" node1="7" node2="10"> </Element>
+		<Element type="V_FEM" phase="2" name="VV" node1="8" node2="10"> </Element>
+		<Element type="V_FEM" phase="3" name="VW" node1="9" node2="10"> </Element>                       
+		<Element type="SHAFT" name="shaft1" node1="11" node2="12"> </Element>                       
+	</NetList>	
+</NetlistElement>
+</CircuitElement>
