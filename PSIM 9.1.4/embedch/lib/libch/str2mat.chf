@@ -1,0 +1,31 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/* form a char matrix from strings */
+#include<stdarg.h>
+#include<array.h>
+
+int str2mat(char mat[:][:], string_t s1, ...) {
+  array int dim[2] = shape(mat);
+  array char (*p)[:];
+  va_list ap;
+  string_t s;
+  int vacount, i, j, len, retval=0;
+
+  va_start(ap, s1);
+  vacount = va_count(ap);
+  if(dim[0] <= vacount)
+     retval = -1;
+  p = (array char [:][:])mat;
+  p = (array char [dim[0]][dim[1]])'\0';
+  len = strlen(s1);
+  for(j=0; j<len; j++)
+    mat[0][j] = strgetc(s1, j);
+
+  for(i=1; i<=vacount && i<dim[0]; i++) {
+    s = va_arg(ap, string_t);
+    len = strlen(s);
+    for(j=0; j<len; j++)
+      mat[i][j] = strgetc(s, j);
+  }
+  va_end(ap);
+  return retval;
+}

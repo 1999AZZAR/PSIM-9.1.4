@@ -1,0 +1,4 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+__array double transpose(__array double a[&][&]) [&][&] {
+  return transpose(a);
+}

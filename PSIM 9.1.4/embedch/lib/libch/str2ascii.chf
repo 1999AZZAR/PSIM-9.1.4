@@ -1,0 +1,18 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/* Name: str2asci()
+% Process: calculate the ASCII value of a string
+%
+% Notes: (1) If input string is NULL, return -1;
+%
+% History: created Harry H. Cheng
+*/
+unsigned int str2ascii(char *s)
+{
+   int val=0, i;
+   if(s == NULL)
+     return -1;
+   for (i=0; i<strlen(s); i++)
+     val += s[i];
+   return val;
+}
+

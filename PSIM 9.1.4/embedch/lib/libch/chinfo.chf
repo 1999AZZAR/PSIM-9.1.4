@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <chshell.h>
+#include <string.h>
+int chinfo(chinfo_t *info) {
+   if(info == NULL)
+     return -1;
+   info->edition = _Chedition;
+   info->releasedate = _Chreleasedate;
+   info->version = _Chversion;
+   info->vermajor = _Chvermajor;
+   info->verminor = _Chverminor;
+   info->vermicro = _Chvermicro;
+   info->verbuild = _Chverbuild;
+   return 0;
+}

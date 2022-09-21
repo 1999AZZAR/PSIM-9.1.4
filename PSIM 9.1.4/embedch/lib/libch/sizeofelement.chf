@@ -1,0 +1,58 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+int sizeofelement(int etype) {
+    int size;
+
+    switch(etype) {
+      case elementtype(char):
+        size = sizeof(char);
+      break;
+      case elementtype(unsigned char):
+        size = sizeof(unsigned char);
+      break;
+      case elementtype(short):
+        size = sizeof(short);
+      break;
+      case elementtype(unsigned short):
+        size = sizeof(unsigned short);
+      break;
+      /* case elementtype(long int):*/
+      case elementtype(int):
+        size = sizeof(int);
+      break;
+      /* case elementtype(unsigned long):*/
+      case elementtype(unsigned int):
+        size = sizeof(unsigned int);
+      break;
+      case elementtype(float):
+        size = sizeof(float);
+      break;
+      case elementtype(double):
+        size = sizeof(double);
+      break;
+/*
+      case elementtype(long double):
+        size = sizeof(long double);
+      break;
+*/
+      case elementtype(complex):
+        size = sizeof(complex);
+      break;
+/*
+      case elementtype(dual):
+        size = sizeof(dual);
+      break;
+*/
+      case elementtype(double complex):
+        size = sizeof(double complex);
+      break;
+/*
+      case elementtype(double dual):
+        size = sizeof(double dual);
+      break;
+*/
+      default:
+        fprintf(_stderr, "Error: unknown data type in %s()\n", __func__);
+      break;
+   }
+   return size;
+}

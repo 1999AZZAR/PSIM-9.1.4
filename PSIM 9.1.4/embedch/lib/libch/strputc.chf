@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/** put a character into string s */
+int strputc(string_t &s, int i, char c)
+{
+  if(i>strlen(s))
+  {
+    fprintf(_stderr, "Error: element out of string length"
+                     " in function file strputc()\n");
+    return -1;
+  }
+  else
+  {
+    *(*((char **)&s)+i) = c;
+    return 0;
+  }
+}

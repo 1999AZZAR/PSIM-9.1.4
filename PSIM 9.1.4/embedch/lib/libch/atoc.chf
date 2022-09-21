@@ -1,0 +1,89 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+double complex atoc(char *str) {
+    char * s1, * s2, * sp, *s;
+    string_t st;
+    int i, n, n1, n2;
+    double complex y, errret=ComplexNaN;
+    char c='+';
+    char *token, str1[80], *strp, *delimit="+-";  
+    char *endptr = NULL;                
+    int toksign=1;                     
+    double tmpvalue;                  
+
+    strcpy(st, str);
+    s = st;
+
+    while(s[i]==' ') 
+        i++;
+    s = s+i;
+    sp = strstr(s,"complex");
+    // this segment for format "complex(5,6)"
+    if (sp!=NULL&&(strlen(s)==strlen(sp))) {       
+        i=7;                                        
+        while(sp[i]==' ') 
+            i++;
+        sp = sp+i;
+        if (sp[0]!='(')
+            y = errret;
+        else {
+            sp = sp+1;
+            s1 = strtok(sp,",");
+            s2 = strtok(NULL,")");
+            real(y) = atof(s1);
+            imag(y) = atof(s2);
+        }
+    }
+    else {
+        strcpy(str1,str);
+        for(token = strtok_r(str1,delimit,&endptr); token!=NULL;
+            token = strtok_r(NULL,delimit,&endptr)) {
+            // get the sign of the token item
+            strp = strstr(str, token);
+            if (strp>str) {  
+                if(str[strlen(str)-strlen(strp)-1]=='+') {
+                    toksign =1;
+                }
+                else { 
+                    toksign = -1;
+                }
+            }
+            else {   //the default sign for the first item such as "56" in "56+I*34" is positive
+                toksign = 1;
+            }
+
+            if(strchr(token,'I')!=NULL || strchr(token,'i')!=NULL || strchr(token,'j')!=NULL) {  
+                //fuzzy recognition for imaginary part, restriction can be added here
+                if(imag(y)!=0) {
+                    break;
+                }
+                for(i=0; i<strlen(token); i++) {       //remove Iij symbol 
+                    if(token[i]=='I' || token[i]=='i' || token[i]=='j') {
+                        token[i] = ' ';
+                    }
+                }
+
+                char *tmp = strchr(token, '*'); 
+                if(tmp) { // for atoc("3+i*0")
+                    tmp++;
+                    tmpvalue = atof(tmp);
+                }
+                else {    // for only I i j cases
+                    tmpvalue = 1;
+                }
+
+                imag(y) = toksign*tmpvalue;
+            }
+            else {   //for the real part
+                if(real(y)!=0) {
+                    break;
+                }
+                real(y) = toksign*atof(token);
+            }
+        }
+    }
+    return y;
+}

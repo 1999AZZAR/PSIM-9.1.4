@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/* get a character from string s */
+char strgetc(string_t &s, int i)
+{
+  if(i>strlen(s))
+  {
+    fprintf(_stderr, "Error: element out of string length"
+                     " in function file strgetc()\n");
+    return -1;
+  }
+  else
+    return  *(*((char **)&s) +i);
+}

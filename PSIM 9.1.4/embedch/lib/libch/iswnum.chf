@@ -1,0 +1,8 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdlib.h>
+int iswnum(wchar_t *pattern) {
+   size_t n = wcslen(pattern)+1;
+   char s[n];
+   wcstombs(s, pattern, n); 
+   return _isnum(s);
+}

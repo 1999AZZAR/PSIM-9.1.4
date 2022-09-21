@@ -1,0 +1,80 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdio.h>
+/***********************************************************************
+ * This function removes function prototypes such as
+ *     int func1(int i);
+ * from a header file that has already been filtered through processhfile().
+ *
+ * Argumnets:
+ *    filename: name of the file to process
+ *    funcname: function name to look for
+ *    keepNum: if 0, remove all occurances of this prototype.
+ *             if >0 , keep the keepNum desired funcname that is found.
+ * Example:
+ *    removeFuncProto("chfcreate/test.h", "func1", 2);
+ * This will remove all instances except for the 2nd instance of the function, 
+ * func1(), prototype that is found in the file chfcreate/test.h.
+ ***************************************************************/
+int removeFuncProto(char *filename, char *funcname, int keepNum)
+{
+#define LINESIZE 1024
+   char line[LINESIZE], *ptr;
+   string_t filenameout;
+   FILE *stream1, *stream2;
+   int num = 0;
+
+   /* Check to see if the funcname provided is NULL */
+   if (funcname == NULL)
+   {
+      printf("Error: %s: Null funcname recieved.\n", __func__);
+      return -1;
+   }
+
+   /* Check for access to the file */
+   if(!(stream1 = fopen(filename, "r")))
+   {
+      printf("Error: %s: Unable to open '%s' for reading.\n", __func__, filename);
+      return -1;
+   }
+
+   filenameout = tmpnam(NULL);
+   /* Check for access to the file */
+   if(!(stream2 = fopen(filenameout, "w")))
+   {
+      printf("Error: %s: Unable to open '%s' for writing.\n", __func__, filenameout);
+      return -1;
+   }
+
+    fgets(line, LINESIZE , stream1);
+    while(!feof(stream1)) {
+        if(ptr = strstr(line, funcname)) {
+           if(*(ptr-1) == ' ' || *(ptr-1) == '\t' || /* find ' ' in "int' 'funcname();" */
+              *(ptr-1) == '*')     /* find * in "int *funcname();" */
+           {
+              ptr += strlen(funcname);
+              while(*ptr == ' ' || *ptr== '\t')    /* skip ' ' or '\t' in "int funcname' '();" or "int funcname'\t'();" */
+              {
+                 ptr++;
+              }
+              if(*ptr == '(') {          /* Find '(' in "int funcname();" */
+                 num++;
+                 if(num != keepNum) {
+                   while(!strchr(line, ';'))      /* till find ';' in "int funcname();" */
+                   {
+                     fgets(line, LINESIZE , stream1);
+                   }
+                   fgets(line, LINESIZE , stream1);
+                   continue;
+                 }
+              }
+           }
+        }
+        fputs(line, stream2);
+        fgets(line, LINESIZE , stream1);
+    }
+    fclose(stream1);
+    fclose(stream2);
+   /* Move the temperary file to the original file. */
+    mv -f $filenameout $filename
+    return 0;
+}

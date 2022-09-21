@@ -1,0 +1,64 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+int iscnum(char *str) {
+   char * s1, * s2, * sp, *s;
+   string_t st;
+   int i, n, n1, n2;
+   char c='+';
+
+   char *token, str1[80], *delimit="+-";  //added by qc
+   char *endptr = NULL;                //added by qc
+   int retval=1;                    //added by qc
+
+   strcpy(st, str);
+   s = st;
+   while(s[i]==' ') 
+      i++;
+   s = s+i;
+   sp = strstr(s,"complex");
+// Following segment of code is for format "complex(5,6)"
+   if (sp!=NULL&&(strlen(s)==strlen(sp))) {       
+      i=7;                                        
+      while(sp[i]==' ') 
+         i++;
+      sp = sp+i;
+      if (sp[0]!='(')
+         retval = 0;
+      else {
+         sp = sp+1;
+         s1 = strtok(sp,",");
+         s2 = strtok(NULL,")");
+         if (!isnum(s1) || !isnum(s2))  {
+            retval = 0;
+         }
+      }
+   }
+// Following segment of code is for format "5+j8" etc.
+   else {
+     strcpy(str1,str);
+     for(token = strtok_r(str1,delimit,&endptr); token!=NULL;
+        token = strtok_r(NULL,delimit,&endptr)) {
+         
+        if(strchr(token,'I')!=NULL || strchr(token,'i')!=NULL || strchr(token,'j')!=NULL) {  
+          //fuzzy recognition for imaginary part, restriction can be added here
+          for(i=0; i<strlen(token); i++) {       //remove Iij* symbol 
+             if(token[i]=='I' || token[i]=='i' || token[i]=='j' || token[i]=='*') {
+               token[i] = ' ';
+             }
+          }
+          if(!isnum(token)) {
+             retval = 0;
+          }
+       }
+       else {   //for the real part
+          if(!isnum(token)) {
+             retval = 0;
+          }
+       }
+     }
+   }
+   return retval;
+}

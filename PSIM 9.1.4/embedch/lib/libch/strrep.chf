@@ -1,0 +1,20 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+string_t strrep(string_t s1, string_t s2, string_t s3 /*, ... int pos */) {
+  char *p1, *p2 ;
+  string_t s;
+
+  p1 = s1;
+  p2 = s1;
+  p2 = strstr(p1, s2);
+  while(p2) {
+    if(p2 != NULL) {
+      *p2 = '\0';
+      strcat(s, p1);
+      strcat(s, s3);
+      p1 = p2+strlen(s2);
+      p2 = strstr(p1, s2);
+    }
+  }
+  strcat(s, p1);
+  return s;
+}

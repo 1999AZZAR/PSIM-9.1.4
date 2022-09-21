@@ -1,0 +1,85 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***************************************************************
+* binary resize from X-Windows will treat ch/sch as sh for xterm
+*
+*
+* Note: (1) _resize() is equivalent to resize in xterm
+*       (2) this code will be obsolete after resize command
+*           is modified to handle Ch shell.
+* 
+*
+* History: created by Harry H. Cheng, 12/30/1998
+***************************************************************/
+void _resize(){
+  string_t s;
+  //char s[256];
+  int columns, lines;
+  char *p, *token, cmd[256], str[256];
+
+#if defined(_Window_)
+   fprintf(_stderr, "Error: function %s() is not available in Windows.\n", __func__);
+#endif
+
+  s = `resize`;
+  //strcpy(s, `resize`);
+  p = strstr(s, "COLUMNS");
+  if(p!=NULL) {
+    token = strtok(s,"'=");
+    token = strtok(NULL,"';");
+    columns = atoi(token); /* get 80 of "setenv COLUMNS '80';" */
+    token = strtok(NULL,"'=");
+    token = strtok(NULL,"';");
+    lines = atoi(token);   /* get 24 of "setenv COLUMNS '24';" */
+    sprintf(str, "COLUMNS=%d", columns);
+    printf("putenv(\"COLUMNS=%d\");", columns);
+    putenv(str);
+    sprintf(str, "LINES=%d", lines);
+    printf("putenv(\"LINES=%d\")", lines);
+    putenv(str);
+  }
+  else if(s != NULL) /* For xterm in SunOS 4.1.3 */
+    printf("\"%s\"", s);
+  /* else */  /* For cmdtool in Sun, etc */
+}
+#ifdef _use_alias_
+/*********************************************************
+* The output from resize such as
+*     setenv COLUMNS '80'; or COLUMNS=80;
+*     setenv LINES '24';   or LINES=24;
+* becomes
+*     putenv("COLUMNS=80"), putenv("LINES=24") 
+* and executed by alias("resize", "streval(`_resize`)");
+* in CHHOME/install/dotfiles/chshrc  
+**********************************************************/
+int main() {
+  string_t s;
+  //char s[256];
+  int columns, lines;
+  char *p, *token, cmd[256], str[256];
+
+  s = `resize`;
+  //strcpy(s, `resize`);
+  p = strstr(s, "COLUMNS");
+  if(p!=NULL) {
+    token = strtok(s,"'=");
+    token = strtok(NULL,"';");
+    columns = atoi(token); /* get 80 of "setenv COLUMNS '80';" */
+    token = strtok(NULL,"'=");
+    token = strtok(NULL,"';");
+    lines = atoi(token);   /* get 24 of "setenv COLUMNS '24';" */
+    sprintf(cmd, "putenv(\"COLUMNS=%d\"), putenv(\"LINES=%d\")", columns, lines);
+    printf("%s\n", cmd); 
+    /* second ways to handle resize
+     remove the above line 
+     add alias("resize", "streval(`_resize`)"); in ~/.chshrc 
+     uncomment two lines below 
+    */
+    //sprintf(str, "putenv(\\\"COLUMNS=%d\\\"), putenv(\\\"LINES=%d\\\")", columns, lines);
+    //printf("%s, \"%s\"\n", cmd, str); 
+  }
+  else if(s != NULL) /* For xterm in SunOS 4.1.3 */
+    printf("\"%s\"", s);
+  else 
+    printf("\"\"");  /* For cmdtool in Sun */
+}
+#endif /* _use_alias_ */
