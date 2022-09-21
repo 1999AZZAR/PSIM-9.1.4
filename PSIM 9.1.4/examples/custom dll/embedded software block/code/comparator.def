@@ -1,0 +1,11 @@
+; Comparator.def : Declares the module parameters for the DLL.
+
+LIBRARY      "Comparator"
+DESCRIPTION  'Comparator DLL Block For PSIM'
+
+EXPORTS
+	REQUESTUSERDATA @2
+	OPENSIMUSER		@3
+	CLOSESIMUSER	@4
+	RUNSIMUSER2		@5
+	STARTSIMUSER	@6
