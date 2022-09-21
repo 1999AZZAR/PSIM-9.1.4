@@ -1,0 +1,5 @@
+C:\Datos\SmartCtrl\Videos y Tutoriales\20100120 Tutoriales\Tutoriales Oliver\T3 Resonant converter\Resonant converter AC analysis.fra
+Transfer function = Voltage
+Fsw = 100k
+Vo = 267
+

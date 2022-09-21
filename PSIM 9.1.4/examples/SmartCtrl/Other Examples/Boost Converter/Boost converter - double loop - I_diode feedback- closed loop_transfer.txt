@@ -1,0 +1,7 @@
+C:\Program Files\Powersim\PSIM9.1.1\examples\SmartCtrl\Other Examples\Boost Converter\Boost converter - double loop - I_diode feedback- closed loop.psimsch
+C:\Program Files\Powersim\PSIM9.1.1\examples\SmartCtrl\Other Examples\Boost Converter\Boost converter - double loop - I_diode feedback- closed loop_param.txt
+Loop type = Single
+Outer loop = current sensor + PI
+Inner loop = No
+Export option = components
+Get = Regulator and parameters

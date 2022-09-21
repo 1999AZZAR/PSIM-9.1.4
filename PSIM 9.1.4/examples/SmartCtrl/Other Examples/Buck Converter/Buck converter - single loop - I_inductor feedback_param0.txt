@@ -1,0 +1,6 @@
+Fsw=160K
+R2=389.718Ohm
+R11=10KOhm
+C2=28.116nF
+Gmod=1
+Vref=3.2

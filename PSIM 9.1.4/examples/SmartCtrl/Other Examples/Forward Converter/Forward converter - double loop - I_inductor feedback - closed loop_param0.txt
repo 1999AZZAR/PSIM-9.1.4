@@ -1,0 +1,15 @@
+R2=5.26879KOhm
+R11=10KOhm
+Rar=2.17391KOhm
+C2=20.4394nF
+C3=10.9799nF
+Fsw_i=100K
+fpk_i=20KHz
+R1_i=2.63769KOhm
+R2_i=146.78Ohm
+R11_i=10KOhm
+C1_i=3.44575nF
+C2_i=296.678nF
+C3_i=78.2547nF
+Gmod_i=1
+Vref=5

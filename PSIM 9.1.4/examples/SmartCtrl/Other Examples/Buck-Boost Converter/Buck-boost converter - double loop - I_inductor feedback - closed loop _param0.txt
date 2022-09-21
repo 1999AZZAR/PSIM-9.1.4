@@ -1,0 +1,13 @@
+Ra=699.999Ohm
+Rb=500Ohm
+Vref=5V
+R2=32.4259KOhm
+R11=10KOhm
+C2=6.4474nF
+C3=8.8869nF
+Fsw_i=100K
+R2_i=3.88847KOhm
+R11_i=10KOhm
+C2_i=6.69978nF
+C3_i=1.33232nF
+Gmod_i=1

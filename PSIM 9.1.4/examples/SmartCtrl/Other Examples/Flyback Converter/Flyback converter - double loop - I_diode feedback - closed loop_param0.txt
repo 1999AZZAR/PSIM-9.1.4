@@ -1,0 +1,16 @@
+Vref=2.5V
+Vo=5V
+R2=6.73128KOhm
+R11=10KOhm
+C2=25.5014nF
+C3=15.7671nF
+Fsw_i=250K
+fpk_i=20KHz
+R1_i=1.56831KOhm
+R2_i=240.207Ohm
+R11_i=10KOhm
+C1_i=7.47307nF
+C2_i=359.901nF
+C3_i=56.4437nF
+Gmod_i=1
+fc_pole=20000

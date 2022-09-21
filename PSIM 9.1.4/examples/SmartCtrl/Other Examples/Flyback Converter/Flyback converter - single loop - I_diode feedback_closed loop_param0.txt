@@ -1,0 +1,11 @@
+Fsw=80K
+fpk=20KHz
+R1=2.33528KOhm
+R2=139.94Ohm
+R11=10KOhm
+C1=2.96535nF
+C2=261.386nF
+C3=61.041nF
+Gmod=1
+Vref=5.2
+Voff=5

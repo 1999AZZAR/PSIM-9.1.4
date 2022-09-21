@@ -1,0 +1,12 @@
+fsw=250K
+Vref=2.5V
+Vo=5V
+R1=227.85Ohm
+R2=821.794Ohm
+R11=10KOhm
+C1=52.1283nF
+C2=648.776nF
+C3=14.7824nF
+Gmod=1
+fc_pole=20K
+Voff=Vref-(0.1/Gmod)

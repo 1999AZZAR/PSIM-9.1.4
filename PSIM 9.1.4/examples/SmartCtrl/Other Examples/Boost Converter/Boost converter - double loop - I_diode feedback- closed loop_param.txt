@@ -1,0 +1,11 @@
+Fsw = 160k
+Vref = 4 V
+Gain = 1 Ohm
+R2 = 1.13628k Ohm
+R11 = 10k Ohm
+C2 = 8.7912n F
+Vp = 6.56 V
+Vv = 750m V
+tr = 8.5u s
+Vpp = 5.81 V
+Dramp = 1.36

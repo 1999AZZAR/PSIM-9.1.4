@@ -1,0 +1,10 @@
+fsw=160k
+Vref=4V
+Gain=1Ohm
+R2=1.13628kOhm
+R11=10kOhm
+C2=8.7912nF
+Vp=6.56V
+Vv=750mV
+Vpp=5.81V
+Dramp=1.36
