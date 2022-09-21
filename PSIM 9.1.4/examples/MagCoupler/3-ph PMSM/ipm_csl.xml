@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<CircuitElement file="ipm.jcf" name="IPM_motor">
+	<Terminal id="1" name="Vu" port="in">
+		<Jmag condition="voltage_function" id="1">
+		</Jmag>
+	</Terminal>
+	<Terminal id="2" name="Vv" port="in">
+		<Jmag condition="voltage_function" id="3">
+		</Jmag>
+	</Terminal>
+	<Terminal id="3" name="Vw" port="in">
+		<Jmag condition="voltage_function" id="2">
+		</Jmag>
+	</Terminal>
+	<Terminal id="4" name="Disp" port="in">
+		<Jmag condition="displacement" id="1">
+			<Component>
+				dtheta
+			</Component>
+		</Jmag>
+	</Terminal>
+	<Terminal id="5" name="Iu" port="out">
+		<Jmag condition="current" id="4">
+		</Jmag>
+	</Terminal>
+	<Terminal id="6" name="Iv" port="out">
+		<Jmag condition="current" id="6">
+		</Jmag>
+	</Terminal>
+	<Terminal id="7" name="Iw" port="out">
+		<Jmag condition="current" id="5">
+		</Jmag>
+	</Terminal>
+	<Terminal id="8" name="Torque" port="out">
+		<Jmag condition="force" id="1">
+			<Component>
+				torque
+			</Component>
+		</Jmag>
+	</Terminal>
+</CircuitElement>

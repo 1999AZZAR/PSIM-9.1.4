@@ -1,0 +1,20 @@
+*************************************
+  JMAG : Magnetic Analysis Solver
+  version = 10.0.2n
+  copyright(C) JSOL Corporation.
+*************************************
+Start Calculation : Sun Jan 03 11:41:59 2010
+ SOLVER is ICCG
+ Newton Raphson Iteration
+ FEM analysis
+ A method
+  ********* i n f o r m a t i o n     104100  *********
+  ********* i n f o r m a t i o n     104100  *********
+  ********* i n f o r m a t i o n     104100  *********
+  ********* i n f o r m a t i o n     104100  *********
+  ********* i n f o r m a t i o n     104100  *********
+  ********* i n f o r m a t i o n     104100  *********
+residual non linear relaxation
+[prntxt] Maximum Memory= 3.558 Mbyte
+End Calculation : Sun Jan 03 11:41:59 2010
+Calculation Time : 0.000  [sec]

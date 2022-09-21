@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<CircuitElement file="IPM_FEM.jcf" name="MagCoupler-DL">
+	<NetlistElement Type="JMAGDL" element="PMSM ">
+		<Interface elec_node_number="3" mech_node_number="2">
+			<Port type="MECH" name="shaft1+" node="5"></Port>
+			<Port type="MECH" name="shaft1-" node="6"></Port>
+			<Port type="ELEC" name="U" node="2"></Port>
+			<Port type="ELEC" name="V" node="3"></Port>
+			<Port type="ELEC" name="W" node="4"></Port>
+		</Interface>
+		<Netlist FEM_coil_number="3" shaft_number="1">
+			<Element Type="SHAFT" Name="shaft1" node1="5" node2="6">
+			</Element>
+			<Element Type="R_FEM" Name="R_Uphase" node1="2" node2="7">
+				<Parameter name="phase">1</Parameter>
+			</Element>
+			<Element Type="L_FEM" Name="L_Uphase" node1="7" node2="8">
+				<Parameter name="phase">1</Parameter>
+			</Element>
+			<Element Type="V_FEM" Name="V_Uphase" node1="8" node2="1">
+				<Parameter name="phase">1</Parameter>
+			</Element>
+			<Element Type="R_FEM" Name="R_Vphase" node1="3" node2="9">
+				<Parameter name="phase">2</Parameter>
+			</Element>
+			<Element Type="L_FEM" Name="L_Vphase" node1="9" node2="10">
+				<Parameter name="phase">2</Parameter>
+			</Element>
+			<Element Type="V_FEM" Name="V_Vphase" node1="10" node2="1">
+				<Parameter name="phase">2</Parameter>
+			</Element>
+			<Element Type="R_FEM" Name="R_Wphase" node1="4" node2="11">
+				<Parameter name="phase">3</Parameter>
+			</Element>
+			<Element Type="L_FEM" Name="L_Wphase" node1="11" node2="12">
+				<Parameter name="phase">3</Parameter>
+			</Element>
+			<Element Type="V_FEM" Name="V_Wphase" node1="12" node2="1">
+				<Parameter name="phase">3</Parameter>
+			</Element>
+		</Netlist>
+	</NetlistElement>
+</CircuitElement>

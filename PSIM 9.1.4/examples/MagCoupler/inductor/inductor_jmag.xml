@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<CircuitElement file="inductor_jmag.jcf" name="Undefined">
+	<Terminal id="1" name="VL" port="in">
+		<Jmag condition="voltage_function" id="1">
+		</Jmag>
+	</Terminal>
+	<Terminal id="2" name="iL" port="out">
+		<Jmag condition="current" id="2">
+		</Jmag>
+	</Terminal>
+</CircuitElement>

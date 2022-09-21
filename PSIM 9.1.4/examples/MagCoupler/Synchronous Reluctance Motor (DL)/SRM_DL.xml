@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+
+<CircuitElement file="SRM_DL.jcf" name="DL_SRM">
+	<NetlistElement Type="JMAGDL" element="SRM">
+		<Interface elec_node_number="6" mech_node_number="2">
+			<Port type="MECH" name="SHAFT+" node="5"></Port>
+			<Port type="MECH" name="SHAFT-" node="6"></Port>
+                        <Port type="ELEC" name="C1-" node="1"></Port>
+			<Port type="ELEC" name="C1+" node="2"></Port>
+                        <Port type="ELEC" name="C2-" node="3"></Port>
+			<Port type="ELEC" name="C2+" node="13"></Port>
+                        <Port type="ELEC" name="C3-" node="4"></Port>  
+			<Port type="ELEC" name="C3+" node="14"></Port>	
+		</Interface>
+		<Netlist FEM_coil_number="3" shaft_number="1">
+			<Element Type="SHAFT" Name="SHAFT" node1="5" node2="6">
+			</Element>
+			<Element Type="R_FEM" Name="R_coil_U" node1="1" node2="7">
+				<Parameter name="phase">1</Parameter>
+			</Element>
+			<Element Type="L_FEM" Name="L_coil_U" node1="7" node2="8">
+				<Parameter name="phase">1</Parameter>
+			</Element>
+			<Element Type="V_FEM" Name="V_coil_U" node1="8" node2="2">
+				<Parameter name="phase">1</Parameter>
+			</Element>
+			<Element Type="R_FEM" Name="R_coil_V" node1="3" node2="9">
+				<Parameter name="phase">2</Parameter>
+			</Element>
+			<Element Type="L_FEM" Name="L_coil_V" node1="9" node2="10">
+				<Parameter name="phase">2</Parameter>
+			</Element>
+			<Element Type="V_FEM" Name="V_coil_V" node1="10" node2="13">
+				<Parameter name="phase">2</Parameter>
+			</Element>
+			<Element Type="R_FEM" Name="R_coil_W" node1="4" node2="11">
+				<Parameter name="phase">3</Parameter>
+			</Element>
+			<Element Type="L_FEM" Name="L_coil_W" node1="11" node2="12">
+				<Parameter name="phase">3</Parameter>
+			</Element>
+			<Element Type="V_FEM" Name="V_coil_W" node1="12" node2="14">
+				<Parameter name="phase">3</Parameter>
+			</Element>
+		</Netlist>
+	</NetlistElement>
+</CircuitElement>
