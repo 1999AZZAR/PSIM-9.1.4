@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <netconfig.h>
+
+void freenetconfigent() {
+    void *fptr;
+
+    fptr = dlsym(_ChNetconfig_handle, "freenetconfigent_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return;
+    }
+    dlrunfun(fptr, NULL, freenetconfigent);
+}

@@ -1,0 +1,20 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+#include <stdio.h>
+
+wint_t fputwc(wint_t wc, FILE *stream) {
+    void *fptr;
+    wint_t retval;
+
+#if defined(_WIN32_)
+    dlrunfun(_Ch_fputwc, &retval, fputwc, wc, stream);
+#else
+    fptr = dlsym(_ChWchar_handle, "fputwc_chdl");
+    if(fptr == NULL)  {
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return WEOF;
+    }
+    dlrunfun(fptr, &retval, fputwc, wc, stream);
+#endif
+    return retval;
+}

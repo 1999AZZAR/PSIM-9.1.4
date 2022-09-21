@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <unistd.h>
+
+long gethostid() {
+    void *fptr;
+    long retval;
+
+    fptr = dlsym(_ChUnistd_handle, "gethostid_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, gethostid);
+    return retval;
+}

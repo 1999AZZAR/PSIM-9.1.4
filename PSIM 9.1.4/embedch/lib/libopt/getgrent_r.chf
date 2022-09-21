@@ -1,0 +1,18 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdarg.h>
+#include<grp.h>
+
+int getgrent_r(struct group *resultbuf, char *buffer, int buflen, struct group **result) {
+    void *fptr;
+    va_list ap;
+    int count;
+    int retval;
+
+    fptr = dlsym(_ChGrp_handle, "getgrent_r_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, getgrent_r, resultbuf, buffer, buflen, result);
+    return retval;
+}

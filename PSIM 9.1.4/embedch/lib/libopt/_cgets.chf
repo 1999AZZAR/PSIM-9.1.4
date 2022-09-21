@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+char * _cgets(char *buffer) {
+    void *fptr;
+    char * retval;
+
+    fptr = dlsym(_ChConio_handle, "_cgets_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return NULL;
+    }
+    dlrunfun(fptr, &retval,_cgets, buffer);
+    return retval;
+}

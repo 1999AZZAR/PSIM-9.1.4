@@ -1,0 +1,19 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+struct hostent *gethostent_r(struct hostent *result, char *buffer,
+    int buflen, int *h_errnop) {
+    void *fptr;
+    struct hostent * retval;
+
+    fptr = dlsym(_ChNetdb_handle, "gethostent_r_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, gethostent_r, result, buffer, buflen, h_errnop);
+    return retval;
+}

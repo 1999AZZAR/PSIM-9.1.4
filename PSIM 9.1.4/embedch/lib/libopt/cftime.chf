@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<time.h>
+
+int cftime(char *s, char *format, const time_t *clock) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChTime_handle, "cftime_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, cftime, s, format, clock);
+    return retval;
+}

@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<stdio.h>
+
+void flockfile(FILE *stream) {
+    void *fptr;
+
+    fptr = dlsym(_ChStdio_handle, "flockfile_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return;
+    }
+    dlrunfun(fptr, NULL, flockfile, stream);
+}

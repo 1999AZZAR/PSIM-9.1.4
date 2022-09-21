@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+unsigned long _outpd(unsigned short PortNum, unsigned long ulVal) {
+    void *fptr;
+    unsigned long retval;
+
+    fptr = dlsym(_ChConio_handle, "_outpd_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval,_outpd, PortNum, ulVal);
+    return retval;
+}

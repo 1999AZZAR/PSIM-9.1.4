@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+int _cputs(const char *string) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChConio_handle, "_cputs_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval,_cputs, string);
+    return retval;
+}

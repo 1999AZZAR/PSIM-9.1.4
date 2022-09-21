@@ -1,0 +1,11 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+int fwprintf(FILE *filename, const wchar_t *format, ...) {
+    va_list ap;
+    int retval;
+
+    va_start(ap, format);
+    retval = vfwprintf(filename, format, ap);
+    va_end(ap);
+    return retval;
+}

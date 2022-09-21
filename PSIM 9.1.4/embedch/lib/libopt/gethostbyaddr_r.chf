@@ -1,0 +1,21 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h> 
+
+int gethostbyaddr_r(void* addr, socklen_t len, int type,
+    struct hostent *resultbuf, char *buf, size_t buflen, 
+    struct hostent** result, int *h_errnop) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChNetdb_handle, "gethostbyaddr_r_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, gethostbyaddr_r, addr, len, type,
+              resultbuf, buf, buflen, result, h_errnop);
+    return retval;
+}

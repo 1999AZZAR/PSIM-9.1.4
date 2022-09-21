@@ -1,0 +1,19 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+
+wchar_t *fgetws(wchar_t *str, int i, FILE *stream) {
+    void *fptr;
+    wchar_t *retval;
+
+#if defined(_WIN32_)
+    dlrunfun(_Ch_fgetws, &retval, fgetws, str, i , stream);
+#else
+    fptr = dlsym(_ChWchar_handle, "fgetws_chdl");
+    if(fptr == NULL)  {
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return NULL;
+    }
+    dlrunfun(fptr, &retval, fgetws, str, i , stream);
+#endif
+    return retval;
+}

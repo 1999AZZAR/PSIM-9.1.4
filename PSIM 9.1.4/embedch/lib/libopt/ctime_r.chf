@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<time.h>
+
+char *ctime_r(const time_t *clock, char *buf, int buflen) {
+    void *fptr;
+    char *retval;
+
+    fptr = dlsym(_ChTime_handle, "ctime_r_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, ctime_r, clock, buf, buflen);
+    return retval;
+}

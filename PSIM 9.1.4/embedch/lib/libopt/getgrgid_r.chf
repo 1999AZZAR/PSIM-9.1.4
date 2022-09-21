@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<grp.h>
+
+struct group *getgrgid_r(gid_t gid, struct group *result,
+    char *buffer, int buflen) {
+    void *fptr;
+    struct group * retval;
+
+    fptr = dlsym(_ChGrp_handle, "getgrgid_r_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, getgrgid_r, gid, result, buffer, buflen);
+    return retval;
+}
