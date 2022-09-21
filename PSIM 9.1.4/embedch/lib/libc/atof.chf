@@ -1,0 +1,12 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: atof.c
+*
+* Note: (1)  ANSI C function in standard lib stdlib.h
+*       (2)  change string to double 
+* History: created by Harry H. Cheng, 8/20/94
+**********************************************************/
+double atof(char *s)
+{
+  return strtod(s, NULL);
+}

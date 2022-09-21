@@ -1,0 +1,19 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: closedir.dl
+* Purpose: POSIX function for handling directory
+* History: created by Harry H. Cheng, 4/1/1997
+**********************************************************/
+#include <dirent.h>
+int closedir(DIR *dirp) {
+  void *fptr;
+  int retval;
+
+  fptr = dlsym(_ChDirent_handle, "closedir_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return -1;
+  }
+  dlrunfun(fptr, &retval, closedir, dirp);
+  return retval;
+}

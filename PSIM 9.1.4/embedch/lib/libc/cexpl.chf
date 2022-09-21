@@ -1,0 +1,4 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+long double complex cexpl(long double complex z) {
+    return exp(z);
+}

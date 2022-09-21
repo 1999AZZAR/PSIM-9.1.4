@@ -1,0 +1,5 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<string.h>
+void bcopy(void *s1, void *s2, size_t len) {
+  memmove(s1, s2, len);
+}

@@ -1,0 +1,12 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: atol.c
+*
+* Note: (1)  ANSI C function in standard lib stdlib.h
+*       (2)  change string to long int
+* History: created by Harry H. Cheng, 8/20/94
+**********************************************************/
+long atol(char *s)
+{
+  return strtol(s, NULL, 10);
+}

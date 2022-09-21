@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+// Function Name:  carg(double complex z)
+//
+// Process: calculate the phase angle of the complex number z.
+//
+// Notes: (1) Input:
+//              z: the complex number.
+//                 real number is a special complex number.
+//	  (3) Output:
+//              the phase angle of z in radian with data type of double.
+//
+// History: Created by Harry H. Cheng, 10/14/1993
+//###################################################################
+double carg(double complex z) {
+  return atan2(imag(z), real(z));
+}

@@ -1,0 +1,37 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: bsearch.c
+* Note: (1)  ANSI C function in stdlib.h
+*       (2)  binary search
+*       (3)  #include <stdlib.h> must be invoked 
+*            before this function is called
+* History: created by Harry H. Cheng, 8/20/96
+**********************************************************/
+#include <stdlib.h>
+void *bsearch(void *key, void *base, size_t nelem, size_t size,
+                int (*cmp)(const void *, const void *))
+{   		
+	const char *p = base;
+	size_t n;
+	const size_t pivot;
+ /*	const char *const q; */
+	char *q;
+	const int val; 
+
+	for (p=base, n = nelem;0 < n; ) {
+						/* check midpoint of whatever is left */
+		pivot = n >> 1;
+		q = p + size * pivot;
+		val = cmp(key, q);
+		
+		if (val < 0)
+			n = pivot;		/* search below pivot */
+		else if (val == 0)
+			return ((void *)q); 	/* found */
+		else {			       	/* search above pivot */
+			p = q + size;
+			n -= pivot + 1;
+                }
+        }
+	return (NULL);				/* no match */
+}

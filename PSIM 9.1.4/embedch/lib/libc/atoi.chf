@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: atoi.c
+*
+* Note: (1)  ANSI C function in standard lib stdlib.h
+*       (2)  change string to int
+* History: created by Harry H. Cheng, 8/20/94
+**********************************************************/
+int atoi(char *s)
+{
+  if(s == NULL) {
+    printf("Error: NULL is passed to atoi()\n");
+    return 0;
+  }
+  else 
+    return strtol(s, NULL, 10);
+}
