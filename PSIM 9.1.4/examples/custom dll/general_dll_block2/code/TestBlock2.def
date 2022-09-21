@@ -1,0 +1,10 @@
+; TestBlock2.def : Declares the module parameters for the DLL.
+
+LIBRARY      "TestBlock2"
+DESCRIPTION  'TestBlock2 DLL Block For PSIM'
+
+EXPORTS
+	RUNSIMUSER		@2
+	OPENSIMUSER		@3
+	CLOSESIMUSER	@4
+	REQUESTUSERDATA	@5
