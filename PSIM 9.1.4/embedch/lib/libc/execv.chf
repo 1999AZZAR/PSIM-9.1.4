@@ -1,0 +1,4 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+restrict int execv(char *path, char **argv) {
+    return _execv(path, argv);
+}

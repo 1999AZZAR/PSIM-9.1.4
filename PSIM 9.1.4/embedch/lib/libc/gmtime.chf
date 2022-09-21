@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<time.h>
+
+struct tm *gmtime(const time_t *clock) {
+    void *fptr;
+    struct tm *retval;
+
+    fptr = dlsym(_ChTime_handle, "gmtime_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, gmtime, clock);
+    return retval;
+}

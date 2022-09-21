@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<time.h>
+
+double difftime(time_t time1, time_t time0) {
+    void *fptr;
+    double retval;
+
+    fptr = dlsym(_ChTime_handle, "difftime_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, difftime, time1, time0);
+    return retval;
+}

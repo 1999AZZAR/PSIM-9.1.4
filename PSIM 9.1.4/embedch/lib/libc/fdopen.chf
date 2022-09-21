@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<stdio.h>
+
+FILE * fdopen(int fildes, char *mode) {
+    void  *fptr;
+    FILE *retval;
+
+    fptr = dlsym(_Chstdio_handle, "fdopen_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, fdopen, fildes, mode);
+    return retval;
+}

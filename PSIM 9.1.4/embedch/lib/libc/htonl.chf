@@ -1,0 +1,14 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <netinet/in.h>
+u_long htonl(u_long netlong) {
+    void *fptr;
+    u_long retval;
+
+    fptr = dlsym(_ChNetinetIn_handle, "htonl_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, htonl, netlong);
+    return retval;
+}

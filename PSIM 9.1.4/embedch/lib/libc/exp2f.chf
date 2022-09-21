@@ -1,0 +1,8 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdio.h>
+#include <math.h>
+
+float exp2f(float x) {
+    return pow(2,x);
+}
+

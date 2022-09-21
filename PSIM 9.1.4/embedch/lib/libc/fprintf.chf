@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdarg.h>
+#include <stdio.h>
+int fprintf(FILE *stream,  const char *msg, ...) {
+    va_list ap;
+    int retval;
+
+    va_start(ap, msg);
+    retval = vfprintf(stream,msg, ap);
+    va_end(ap);
+    return retval;
+}
+

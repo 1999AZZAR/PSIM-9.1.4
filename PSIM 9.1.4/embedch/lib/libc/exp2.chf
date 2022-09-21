@@ -1,0 +1,8 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdio.h>
+#include <math.h>
+
+double exp2(double x) {
+    return pow(2,x);
+}
+

@@ -1,0 +1,7 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdio.h>
+#include <math.h>
+
+double fma(double x, double y, double z) {
+    return z + x*y;
+}

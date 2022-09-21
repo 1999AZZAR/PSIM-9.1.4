@@ -1,0 +1,8 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+long double fdiml(long double x, long double y) {
+    if (x>y)
+        return x-y;
+    else 
+        return 0;
+}
+

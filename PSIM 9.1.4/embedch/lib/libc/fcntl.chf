@@ -1,0 +1,14 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdarg.h>
+int fcntl(int fd, int cmd, ...) {
+    va_list ap;
+    void *arg;
+    int retval;
+
+    va_start(ap, a);
+    arg = va_arg(ap, void*);
+    retval = _fcntl(fd, cmd, arg);
+    va_end(ap);
+    return retval;
+}
+

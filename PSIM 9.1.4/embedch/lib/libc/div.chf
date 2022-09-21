@@ -1,0 +1,22 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: div.c
+*
+* Note: (1)  ANSI C function in stdlib.h
+*       (2)  computer int quotient and remainder
+*       (3)  #include <stdlib.h> must be invoked 
+*            before this function is called
+* History: created by Harry H. Cheng, 8/20/96
+**********************************************************/
+#include<stdlib.h>
+div_t div(int numer, int denom) {
+  div_t val;
+
+  val.quot = numer/denom;
+  val.rem =numer - denom*val.quot;
+  if(val.quot < 0 && 0 < val.rem) {
+    val.quot += 1; /* fix remainder with wrong sign */
+    val.rem -= denom;
+  }
+  return val;
+}

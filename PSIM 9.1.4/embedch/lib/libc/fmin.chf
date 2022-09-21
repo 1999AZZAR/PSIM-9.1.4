@@ -1,0 +1,4 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+double fmin(double x, double y) {
+    return min(x,y);
+}

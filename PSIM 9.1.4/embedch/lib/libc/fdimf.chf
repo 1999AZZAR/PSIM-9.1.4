@@ -1,0 +1,8 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+float fdimf(float x, float y) {
+    if (x>y)
+        return x-y;
+    else 
+        return 0;
+}
+
