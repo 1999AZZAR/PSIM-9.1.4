@@ -1,0 +1,18 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+struct netent *getnetent_r(struct netent *result, char *buffer, int buflen) {
+    void *fptr;
+    struct netent * retval;
+
+    fptr = dlsym(_ChNetdb_handle, "getnetent_r_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, getnetent_r, result, buffer, buflen);
+    return retval;
+}

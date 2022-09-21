@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+
+int mbsinit(mbstate_t *ps) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChWchar_handle, "mbsinit_chdl");
+    if(fptr == NULL) { 
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return 0;
+    }
+    dlrunfun(fptr, &retval, mbsinit, ps);
+    return retval;
+}

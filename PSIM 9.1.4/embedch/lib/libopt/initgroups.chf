@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<grp.h>
+
+int initgroups(const char *name, gid_t basegid) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChGrp_handle, "initgroups_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, initgroups, name, basegid);
+    return retval;
+}

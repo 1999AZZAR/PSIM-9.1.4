@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <unistd.h>
+#include <sys/types.h>
+#include <stdio.h>  
+
+pid_t getsid(pid_t pid) {
+    void *fptr;
+    pid_t retval;
+
+    fptr = dlsym(_ChUnistd_handle, "getsid_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, getsid, pid);
+    return retval;
+}

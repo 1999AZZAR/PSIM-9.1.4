@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+int inet_pton(int c2chf_a0, char *c2chf_a1, void *c2chf_a2) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChArpaInet_handle, "inet_pton_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval, inet_pton, c2chf_a0, c2chf_a1, c2chf_a2);
+    return retval;
+}

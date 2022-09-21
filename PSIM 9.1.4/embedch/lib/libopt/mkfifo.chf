@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/stat.h>
+#include <sys/types.h>   
+
+int mkfifo(const char *path, mode_t mode) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSysStat_handle, "mkfifo_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, mkfifo, path, mode);
+    return retval;
+}

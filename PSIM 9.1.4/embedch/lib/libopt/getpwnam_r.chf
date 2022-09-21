@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<pwd.h>
+
+struct passwd *getpwnam_r(const char *name, struct passwd *result,
+    char *buffer, int buflen) {
+    void *fptr;
+    struct passwd * retval;
+
+    fptr = dlsym(_ChPwd_handle, "getpwnam_r_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, getpwnam_r, name, result, buffer, buflen);
+    return retval;
+}

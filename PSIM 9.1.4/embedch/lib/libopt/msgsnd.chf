@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include<sys/msg.h> 
+
+int msgsnd(int msqid, const void *msgp, size_t msgsz, int msgflg) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSysMsg_handle, "msgsnd_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, msgsnd, msqid, msgp, msgsz, msgflg);
+    return retval;
+}

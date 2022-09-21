@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<sys/mman.h>
+
+void* mmap(void* addr, size_t len, int prot, int flags,
+          int fildes, off_t off) {
+    void *fptr;
+    void *retval;
+
+    fptr = dlsym(_ChSysMman_handle, "mmap_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, mmap, addr, len, prot, flags, fildes, off);
+    return retval;
+}

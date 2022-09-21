@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+
+size_t mbrlen(const char *str1, size_t length, mbstate_t *ps) {
+    void *fptr;
+    size_t retval;
+
+    fptr = dlsym(_ChWchar_handle, "mbrlen_chdl");
+    if(fptr == NULL) { 
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return (size_t)-1;
+    }
+    dlrunfun(fptr, &retval, mbrlen, str1, length, ps);
+    return retval;
+}

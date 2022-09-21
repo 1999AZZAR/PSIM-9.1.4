@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+int iopl(int level) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSysIo_handle, "iopl_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval, iopl, level);
+    return retval;
+}

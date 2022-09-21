@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <winsock.h>
+
+int ioctlsocket(SOCKET s, long cmd; u_long *argp) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSysSocket_handle, "ioctlsocket_chdl");
+    if(fptr == NULL)  {
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return SOCKET_ERROR;
+    }
+    dlrunfun(fptr, &retval, ioctlsocket, s, cmd, argp);
+    return retval; 
+}

@@ -1,0 +1,14 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/time.h>
+int gettimeofday(struct timeval *tv, struct timezone *tz) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSysTime_handle, "gettimeofday_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval, gettimeofday, tv, tz);
+    return retval;
+}

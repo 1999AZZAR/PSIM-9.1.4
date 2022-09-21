@@ -1,0 +1,39 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdarg.h>
+#include <mqueue.h>
+
+mqd_t mq_open(const char *name, int oflag, ...) {
+    void *fptr;
+    mode_t mode;
+    struct mq_attr attr;
+    va_list ap;
+    int count;
+    mqd_t  retval;
+    va_start(ap, oflag); 
+    count = va_count(ap);
+    if(count == 0)
+      fptr = dlsym(_ChMqueue_handle, "mq_open2_chdl");
+    else if(count == 2) {
+      fptr = dlsym(_ChMqueue_handle, "mq_open4_chdl");
+      mode = va_arg(ap, mode_t);
+      attr = va_arg(ap, struct mq_attr);
+    }
+    else {
+       printf("Error: %s(): invalid number of arguments\n", __func__);
+       return NULL;
+    }
+
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+
+    if(count == 0)
+      dlrunfun(fptr, &retval, mq_open, name, oflag);
+    else if(count == 2) 
+      dlrunfun(fptr, &retval, mq_open, name, oflag, mode, attr);
+ 
+    va_end(ap);
+
+    return retval;
+}

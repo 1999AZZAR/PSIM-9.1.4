@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<aio.h>
+
+int lio_listio(int mode, struct aiocb* list[], int nent,
+                        struct sigevent *sig) {
+    void  *fptr;
+    int retval;
+
+    fptr = dlsym(_ChAio_handle, "lio_listio_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, lio_listio, mode, list, nent, sig);
+    return retval;
+}

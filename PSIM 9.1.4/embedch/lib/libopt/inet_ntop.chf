@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+char * inet_ntop(int c2chf_a0, void *c2chf_a1, char *c2chf_a2, size_t c2chf_a3) {
+    void *fptr;
+    char *retval;
+
+    fptr = dlsym(_ChArpaInet_handle, "inet_ntop_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return NULL;
+    }
+    dlrunfun(fptr, &retval, inet_ntop, c2chf_a0, c2chf_a1, c2chf_a2, c2chf_a3);
+    return retval;
+}

@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include<sys/msg.h>
+
+int msgget(key_t key, int msgflg) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSysMsg_handle, "msgget_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, msgget, key, msgflg);
+    return retval;
+}

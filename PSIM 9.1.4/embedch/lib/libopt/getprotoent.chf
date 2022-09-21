@@ -1,0 +1,18 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+struct protoent *getprotoent() {
+    void *fptr;
+    struct protoent * retval;
+
+    fptr = dlsym(_ChNetdb_handle, "getprotoent_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, getprotoent);
+    return retval;
+}

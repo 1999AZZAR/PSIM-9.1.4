@@ -1,0 +1,11 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+void insw(unsigned short int port, void *addr, unsigned long int count) {
+    void *fptr;
+
+    fptr = dlsym(_ChSysIo_handle, "insw_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return;
+    }
+    dlrunfun(fptr, NULL, insw, port, addr, count);
+}

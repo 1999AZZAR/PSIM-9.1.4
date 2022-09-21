@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<mqueue.h>
+
+ssize_t mq_receive(mqd_t mqdes, char *msg_ptr, size_t msg_len,
+                unsigned int *msg_prio) {
+    void *fptr;
+    ssize_t retval;
+
+    fptr = dlsym(_ChMqueue_handle, "mq_receive_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, mq_receive, mqdes, msg_ptr, msg_len, msg_prio);
+    return retval;
+}

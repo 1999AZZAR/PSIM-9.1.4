@@ -1,0 +1,20 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+struct in_addr inet_makeaddr(int net, int lna) {
+    void *fptr;
+    struct in_addr  *temp, retval;
+
+    fptr = dlsym(_ChArpaInet_handle, "inet_makeaddr_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return retval;
+    }
+    dlrunfun(fptr, &temp, inet_makeaddr, net, lna);
+    retval = *temp;
+    free(temp); /* free memory allocated in inet_makeaddr_chdl() */
+    return retval;
+}

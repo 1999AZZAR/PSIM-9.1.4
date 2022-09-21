@@ -1,0 +1,19 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+struct netent *getnetbyname_r(char *name, struct netent *result,
+    char *buffer, int buflen) {
+    void *fptr;
+    struct netent * retval;
+
+    fptr = dlsym(_ChNetdb_handle, "getnetbyname_r_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, getnetbyname_r, name, result, buffer, buflen);
+    return retval;
+}

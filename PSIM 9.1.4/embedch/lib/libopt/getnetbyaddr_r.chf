@@ -1,0 +1,19 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+struct netent *getnetbyaddr_r(long net, int type, struct netent *result,
+    char *buffer, int buflen) {
+    void *fptr;
+    struct netent * retval;
+
+    fptr = dlsym(_ChNetdb_handle, "getnetbyaddr_r_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, getnetbyaddr_r, net, type, result, buffer, buflen);
+    return retval;
+}

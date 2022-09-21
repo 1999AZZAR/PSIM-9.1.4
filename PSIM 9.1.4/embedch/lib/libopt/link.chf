@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <unistd.h>
+#include <sys/types.h>
+#include <stdio.h> 
+
+restrict int link(const char *existing, const char *newfile) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChUnistd_handle, "link_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, link, existing, newfile);
+    return retval;
+}

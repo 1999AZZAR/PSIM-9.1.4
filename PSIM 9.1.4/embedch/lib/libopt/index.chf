@@ -1,0 +1,14 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/* index.c is the same as strchr.c */
+char * index(char *s, int c) {
+  fprintf(_stderr, "Warning: %s() is obsolete, use strchr()\n", __func__);
+  if(s == NULL)        /* input is a NULL string */
+    return NULL;
+  else
+  {
+    for(; *s != c; s++)
+      if(*s == '\0')    /* end of string */
+        return NULL;
+    return s;          /* find the character */
+  }
+}
