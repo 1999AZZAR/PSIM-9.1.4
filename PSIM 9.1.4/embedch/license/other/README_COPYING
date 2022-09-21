@@ -1,0 +1,13 @@
+license_COPYING --- The GNU license applied to Unix utilities 
+ar, awk, basename, bash, cat, chgrp, chmod, chown, cksum, cmp, 
+comm, cp, cpio, csplit, cut, dd, df, diff, diff3, dirname, du, 
+egrep, env, expand, expr, factor, fgrep, find, fmt, fold, gawk, 
+grep, gunzip, gzip, head, hostname, id, indent, join, less, ln, 
+logname, ls, make, man, md5sum, mv, nl, nm, od, paste, patch, 
+pathchk, pr, printenv, ranlib, rm, sdiff, sed, sh, size, 
+sleep, sort, split, strings, strip, sum, tail, tar, tee, test, 
+touch, tr, troff, tsort, uname, unexpand, uniq, wc, whoami, xargs
+located in CHHOME/bin for Windows.
+SoftIntegration, upon your request, will furnish you with copies 
+of the source code for these GNU Utilities with a nominal charge
+for the cost of distribution.

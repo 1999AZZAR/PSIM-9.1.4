@@ -1,0 +1,262 @@
+       Copyright (c) 2001-2009 SoftIntegration, Inc.
+
+          Release Notes for the Embedded Ch SDK 
+       ----------------------------------------------
+
+The version and release numbers of the Embedded Ch toolkit.
+This file is located at CHHOME/toolkit/release/release_EmbedCh
+
+
+**********************************************************
+Version 6.1.0 build 6.3.0.13861 December, 2009
+Version 6.1.0 build 6.3.0.13851 December, 2009
+Version 6.1.0 build 6.3.0.13841 November, 2009
+Version 6.1.0 build 6.3.0.13831 November, 2009
+Version 6.1.0 build 6.3.0.13821 October, 2009
+Version 6.1.0 build 6.3.0.13811 October, 2009
+Version 6.1.0 build 6.3.0.13801 October, 2009
+Version 6.1.0 build 6.3.0.13791 September, 2009
+Version 6.1.0 build 6.3.0.13781 August, 2009
+Version 6.1.0 build 6.3.0.13771 July, 2009
+Version 6.1.0 build 6.3.0.13761 June, 2009
+Version 6.1.0 build 6.1.0.13751 April, 2009
+Version 6.1.0 build 6.1.0.13741 February, 2009
+Version 6.1.0 build 6.1.0.13731 January, 2009
+Version 6.1.0 build 6.1.0.13721 January, 2009
+Version 6.1.0 build 6.1.0.13711 January, 2009
+Version 6.1.0 build 6.1.0.13701 January, 2009
+Version 6.1.0 build 6.1.0.13691 December, 2008
+Version 6.1.0 build 6.1.0.13681 November, 2008
+Version 6.1.0 build 6.1.0.13671 November, 2008
+Version 6.1.0 build 6.1.0.13661 November, 2008
+Version 6.1.0 build 13631 September, 2008
+Version 6.0.0 build 13611 August, 2008
+Version 6.0.0 build 13601 July, 2008
+Version 6.0.0 build 13591 July, 2008
+Version 6.0.0 build 13581 April, 2008
+Version 6.0.0 build 13571 March, 2008
+*) support compile options /MD, /MDd, MT, /MTd options for Visual .NET 
+Version 6.0.0 build 13571 March, 2008
+Version 6.0.0 build 13561 February, 2008
+Version 6.0.0 build 13551 February, 2008
+Version 6.0.0 build 13541 February, 2008
+Version 6.0.0 build 13531 February, 2008
+Version 6.0.0 build 13521 January, 2008
+Version 6.0.0 build 13511 January, 2008
+Version 6.0.0 build 13501 December, 2007
+Version 6.0.0 build 13491 December, 2007
+Version 6.0.0 build 13481 November, 2007
+Version 6.0.0 build 13471 November, 2007
+Version 6.0.0 build 13461 November, 2007
+Version 6.0.0 build 13451 October, 2007
+Version 6.0.0 build 13441 October, 2007
+Version 6.0.0 build 13421 October, 2007
+Version 6.0.0 build 13411 September, 2007
+Version 6.0.0 build 13401 September, 2007
+Version 6.0.0 build 13391 September, 2007
+Version 6.0.0 build 13381 August, 2007
+*) added command "watch expr" in the sample debugger for EMbedded Ch.
+Version 6.0.0 build 13381 August, 2007
+*) support Ch v6.0.0.13381
+Version 6.0.0 build 13371 August, 2007
+*) support Ch v6.0.0.13371
+Version 6.0.0 build 13361 August, 2007
+*) support Ch v6.0.0.13361
+Version 6.0.0 build 13331 June, 2007
+*) support Ch v6.0.0.13331
+Version 6.0.0 build 13321 June, 2007
+*) support Ch v6.0.0.13321
+Version 6.0.0 build 13291 June, 2007
+*) support Ch v6.0.0.13291
+Version 6.0.0 build 13281 May, 2007
+*) support Ch v6.0.0.13281
+Version 6.0.0 build 13271 May, 2007
+*) support Ch v6.0.0.13271
+Version 5.5.0 build 13261 April, 2007
+*) support Ch v5.5.0.13261
+Version 5.5.0 build 13251 April, 2007
+*) support Ch v5.5.0.13251
+Version 5.5.0 build 13241 March, 2007
+*) support Ch v5.5.0.13241
+Version 5.5.0 build 13231 March, 2007
+*) support Ch v5.5.0.13231
+Version 5.5.0 build 13221 March, 2007
+*) support Ch v5.5.0.13221
+Version 5.5.0 build 13211 March, 2007
+*) support Ch v5.5.0.13211
+Version 5.5.0 build 13191 March, 2007
+*) support Ch v5.5.0.13191
+Version 5.5.0 build 13181 March, 2007
+*) support Ch v5.5.0.13181
+Version 5.5.0 build 13161 March, 2007
+*) support Ch v5.5.0.13161
+Version 5.5.0 build 13151 March, 2007
+*) support Ch v5.5.0.13151
+Version 5.5.0 build 13141 March, 2007
+*) support Ch v5.5.0.13141
+Version 5.5.0 build 13121 February, 2007
+*) support Ch v5.5.0.13121
+Version 5.5.0 build 13111 February, 2007
+*) support Ch v5.5.0.13111
+Version 5.5.0 build 13101 January, 2007
+*) support Ch v5.5.0.13101
+Version 5.5.0 build 13091 January, 2007
+*) support Ch v5.5.0.13091
+Version 5.5.0 build 13081 December, 2006
+*) support Ch v5.5.0.13071
+Version 5.5.0 build 13071 December, 2006
+*) support Ch v5.5.0.13071
+Version 5.5.0 build 13061 December, 2006
+*) support Ch v5.5.0.13061
+*) Embedded Ch SDK can be installed by non-root users.
+Version 5.5.0 build 13061 November, 2006
+*) support Ch v5.5.0.13031
+Version 5.5.0 build 13051 November, 2006
+*) support Ch v5.5.0.13031
+Version 5.5.0 build 13041 November, 2006
+*) support Ch v5.5.0.13031
+Version 5.5.0 build 13031 October, 2006
+*) support Ch v5.5.0.13031
+Version 5.5.0 build 13021 October, 2006
+*) support Ch v5.5.0.13021
+Version 5.5.0 build 13011 October, 2006
+*) support Ch v5.5.0.13011
+Version 5.5.0 build 13001 October, 2006
+*) support Ch v5.5.0.13001
+Version 5.1.0 build 12781 September, 2006
+*) support Ch v5.1.0.12781 
+*) added two examples on how to callback a C function from the Ch space.
+Version 5.1.0 build 12771 August, 2006
+*) support Ch v5.1.0.12771 
+Version 5.1.0 build 12761 August, 2006
+*) fixed multi-threads for Embedded Ch SDK for Unix
+   for evaluation edition
+Version 5.1.0 build 12761 July, 2006
+*) support Ch v5.1.0.12761 
+Version 5.1.0 build 12751 June, 2006
+*) support Ch v5.1.0.12751 
+Version 5.1.0 build 12741 June, 2006
+*) support Ch v5.1.0.12741 
+Version 5.1.0 build 12721 April, 2006
+*) support Ch v5.1.0.12721 
+Version 5.1.0 build 12711 March, 2006
+*) support Ch v5.1.0.12711 
+Version 5.1.0 build 12701 March, 2006 
+*) support Ch v5.1.0.12701 
+Version 5.1.0 build 12691 March, 2006 
+*) support Ch v5.1.0.12691
+Version 5.1.0 build 12501 September, 2005 
+*) Added Embedded Ch API
+      int Ch_Abort(ChInterp_t interpi);
+*) support MingW C/C++ Compiler through gcc
+Version 5.0.3 build 12371 August, 2005 
+*) updated Embedded Ch, chmt1.dl, chmt2.dl, etc can be located in other
+   dir such as C:/Application/bin by specifying option->chmtdir for
+   Ch_Initialize(interp, option).
+Version 5.0.3 build 5.0.3.12351, July 2005
+*) Support Ch 5.0.3.12351
+Version 5.0.3 build 5.0.3.12341, July 2005
+*) Support Ch 5.0.3.12341
+Version 5.0.3 build 5.0.3.12301, June 2005
+*) Support Ch 5.0.3.12301
+Version 5.0.0 build 5.0.0.12181 February, 2005
+*) Support multi-threads for Embedded Ch up to 500 simultaneously
+   running Ch interpreters in an application.
+   All APIs in Ch SDK and Embedded Ch SDK
+   need a valid interpreter argument. For example,
+   Ch SDK API for Ch_Home() and Ch_VaStart() are changed from
+      char* Ch_Home(void);
+      int Ch_VaEnd(va_list ap);
+   to
+      char* Ch_Home(ChInterp_t interp);
+      int Ch_VaEnd(ChInterp_t interp, va_list ap);
+   The old programs with Ch API can be modified using a Ch script
+   port47to50.ch
+*) added Embedded Ch API
+     int Ch_ExecScriptM(ChInterp_t interp, const char *progname); 
+     int Ch_RunScriptM(ChInterp_t interp, char **argv);
+   to process multiple Ch programs in a single instance of 
+   Ch interpreter.
+*) added Embedded Ch API Ch_IsVariable()
+*) fixed abort() and exit() in Ch programs processed by Embedded Ch
+*) added Borland CBuilder example for Embedded Ch.
+Version 4.7.0 build 11911 November, 2004
+*) supported new API in Ch SDK 
+      ChType_t Ch_VaFuncArgDataType(void *ap, int argnum);
+*) Change API 
+      int Ch_SymbolNum(ChInterp_t interp, const char *name);
+   to
+      int Ch_SymbolIndex(ChInterp_t interp, const char *name);
+*) fixed C:/ch/toolkit/demos/embedch/Borland/embedch/embedclass/sampclass.chf
+   for Borland C++ in Windows
+Version 4.7.0 build 11701 October, 2004
+*) Changed Ch_IsArray() to Ch_ArrayType()
+*) Changed Ch_FuncArgIsArray() to Ch_FuncArgArrayType()
+*) using data type ChType_t
+Version 4.7.0 build 11641 October, 2004
+*) added new API 
+   int   Ch_SetVar(ChInterp_t interp, const char *name, int atype, ...); 
+Version 4.7.0, September, 2004
+*) Support 9 new APIs in Ch SDK so that Ch can be
+   eassily embedded in C/C++ programs and interface with
+   binaryy C/C++ static/dynamic libraries.
+*) Added the following 27 new APIs for Embedded Ch
+   int      Ch_AppendParseScriptFile(ChInterp_t interp, const char *filename);
+   int      Ch_AppendRunScriptFile(ChInterp_t interp, const char *filename);
+   int      Ch_Close(ChInterp_t interp, ChFile_t fildes);
+   ChFile_t Ch_Reopen(ChInterp_t interp, const char *filename, const char *mode, int fildes);
+   int      Ch_Flush(ChInterp_t interp, ChFile_t fildes);
+   int   Ch_SymbolTotalNum(ChInterp_t interp);
+   int   Ch_SymbolNum(ChInterp_t interp, const char *name);
+   void *Ch_SymbolAddrByIndex(ChInterp_t interp, int index);
+   char *Ch_SymbolNameByIndex(ChInterp_t interp, int index);
+   int   Ch_IsArray(ChInterp_t interp, const char *expr);
+   int   Ch_ArrayDim(ChInterp_t interp, const char *name);
+   int   Ch_ArrayExtent(ChInterp_t interp, const char *name, int index);
+   int   Ch_IsFunc(ChInterp_t interp, const char *name);
+   int   Ch_IsFuncVarArg(ChInterp_t interp, const char *name);
+   int   Ch_FuncArgNum(ChInterp_t interp, const char *name);
+   char *Ch_UserDefinedName(ChInterp_t interp, const char *name);
+   int   Ch_UserDefinedSize(ChInterp_t interp, const char *name);
+   int   Ch_ExprCalc(ChInterp_t interp, const char *expr, int datatype, void *result);
+   int   Ch_FuncArgDataType(ChInterp_t interp, const char *funcname, int argnum);
+   int   Ch_FuncArgIsArray(ChInterp_t interp, const char *funcname, int argnum);
+   int   Ch_FuncArgArrayDim(ChInterp_t interp, const char *funcname, int argnum);
+   int   Ch_FuncArgArrayExtent(ChInterp_t interp, const char *funcname, int argnum, int index);
+   int   Ch_FuncArgIsFunc(ChInterp_t interp, const char *funcname, int argnum);
+   int   Ch_FuncArgIsFuncVarArg(ChInterp_t interp, const char *funcname, int argnum);
+   int   Ch_FuncArgFuncArgNum(ChInterp_t interp, const char *funcname, int argnum);
+   char *Ch_FuncArgUserDefinedName(ChInterp_t interp, const char *funcname, int argnum);
+   int   Ch_FuncArgUserDefinedSize(ChInterp_t interp, const char *funcname, int argnum);
+*) added support of functions in function files for expressions in
+   the following APIs
+     Ch_ExprParse()
+     Ch_ExprCalc()
+     Ch_ExprEval().
+*) Ch SDK APIs can be invoked without first calling Ch_RunScript().
+*) fixed the return value of Ch_Initialize() for Embedded Ch.
+*) support Borland C++ compiler in Windows for Ch SDK and Embedded Ch SDK.
+   Examples with source code of using Borland C++ compiler are provided.
+*) Provided examples with source code using Microsoft .NET and VC++.
+
+
+**********************************************************
+Version 4.5, January 6 2004
+*) Binary functions in the original application program with 
+   Embedded Ch can be exported without building a separate dynamically 
+   loaded library .dl file.
+*) Easy interface with binary C++ code, all objects are maintained in
+   C++ binary space.
+*) Added 4 new APIs
+   Ch_ParseScript() parses a script.
+   Ch_ExecScript() executes the script parsed already by Ch_ExecScript().
+   Ch_AppendParseScript() appends a script to the existing script processed by
+        Ch_RunScript().
+   Ch_AppendRunScript() appends and executes a script to the existing
+        script processed by Ch_RunScript().
+**********************************************************
+Version 3.5, January 2003
+*) For Ch version 3.5
+
+**********************************************************
+Version 3.0, June  2002
