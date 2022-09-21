@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<sys/mman.h>
+
+int shm_open(const char *name, int oflag, mode_t mode) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSysMman_handle, "shm_open_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, shm_open, name, oflag, mode);
+    return retval;
+}

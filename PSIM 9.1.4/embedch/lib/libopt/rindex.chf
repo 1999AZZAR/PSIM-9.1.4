@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/* rindex.c is the same as strrchr.c */
+char * rindex(char *s, int c) {
+  char *ss;
+ 
+  fprintf(_stderr, "Warning: %s() is obsolete, use strrchr()\n", __func__);
+  if(s == NULL)        /* input is a NULL string */
+    return NULL;
+  else
+  {
+    for(ss = NULL;  *s != '\0'; s++)
+      if(*s == c)    /* matching */
+        ss = s;
+    return ss;          /* find the last character or NULL*/
+  }
+}

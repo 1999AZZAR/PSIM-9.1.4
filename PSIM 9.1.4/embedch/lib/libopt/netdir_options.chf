@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<netdir.h>
+
+int netdir_options(struct netconfig  *netconfig, int option, int fildes,
+    char  *point_to_args) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChNetdir_handle, "netdir_options_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, netdir_options, netconfig, option, fildes,
+                point_to_args);
+    return retval;
+}

@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stropts.h>
+
+int putpmsg(int fildes, const struct strbuf *ctlptr, const struct strbuf *dataptr, int band, int flags) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChStropts_handle, "putpmsg_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval,putpmsg, fildes, ctlptr, dataptr, band, flags);
+    return retval;
+}

@@ -1,0 +1,23 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/sem.h>
+#include <stdarg.h>
+
+int semctl(int semid, int semnum, int cmd, ...){
+    void *fptr;
+    int retval;
+    va_list ap; 
+    union semun arg;
+    
+    va_start(ap, cmd);
+    fptr = dlsym(_ChSysSem_handle, "semctl_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    arg = va_arg(ap, union semun);
+    dlrunfun(fptr, &retval, semctl, semid, semnum, cmd, arg);
+    va_end(ap);
+    return retval;
+}

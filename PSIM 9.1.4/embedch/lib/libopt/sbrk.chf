@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <unistd.h>
+#include <sys/types.h>
+#include <stdio.h>     
+
+void *sbrk(int incr) {
+    void *fptr;
+    void * retval;
+
+    fptr = dlsym(_ChUnistd_handle, "sbrk_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, sbrk, incr);
+    return retval;
+}

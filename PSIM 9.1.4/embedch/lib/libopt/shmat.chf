@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include<sys/shm.h>    
+
+void *shmat(int shmid, void *shmaddr, int shmflg) {
+    void *fptr;
+    void * retval;
+
+    fptr = dlsym(_ChSysShm_handle, "shmat_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, shmat, shmid, shmaddr, shmflg);
+    return retval;
+}

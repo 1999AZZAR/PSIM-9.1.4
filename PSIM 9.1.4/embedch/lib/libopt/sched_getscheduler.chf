@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<sched.h>
+
+int sched_getscheduler(pid_t pid) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSched_handle, "sched_getscheduler_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, sched_getscheduler, pid);
+    return retval;
+}

@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <netdir.h> 
+
+int netdir_getbyname(struct netconfig  *config,
+    struct nd_hostserv *service,
+    struct nd_addrlist **addrs) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChNetdir_handle, "netdir_getbyname_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, netdir_getbyname, config, service, addrs);
+    return retval;
+}

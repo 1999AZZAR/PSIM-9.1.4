@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <signal.h>
+
+int sigaction(int sig, struct sigaction *act, struct sigaction *oact) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSignal_handle, "sigaction_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, sigaction, sig, act, oact);
+    return retval;
+}

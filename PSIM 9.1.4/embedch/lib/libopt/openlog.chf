@@ -1,0 +1,12 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <syslog.h>
+
+void openlog(const char *ident, int logopt, int facility) {
+    void *fptr;
+
+    fptr = dlsym(_ChSyslog_handle, "openlog_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+    }
+    dlrunfun(fptr, NULL, openlog, ident, logopt, facility);
+}

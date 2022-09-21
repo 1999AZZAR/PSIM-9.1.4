@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+int sem_timedwait(sem_t *sem, struct timespec *abs_timeout) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChSemaphore_handle, "sem_timedwait_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval, sem_timedwait, sem, abs_timeout);
+    return retval;
+}

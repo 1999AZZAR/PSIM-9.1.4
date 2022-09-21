@@ -1,0 +1,11 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+void outb_p(unsigned char value, unsigned short int port) {
+    void *fptr;
+
+    fptr = dlsym(_ChSysIo_handle, "outb_p_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return;
+    }
+    dlrunfun(fptr, NULL, outb_p, value, port);
+}

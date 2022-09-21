@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<netdir.h>
+
+void netdir_free(void *ptr, int struct_type) {
+    void *fptr;
+
+    fptr = dlsym(_ChNetdir_handle, "netdir_free_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return;
+    }
+    dlrunfun(fptr, NULL, netdir_free, ptr, struct_type);
+}
