@@ -1,0 +1,17 @@
+PF = 4 // The pair number of poles
+CNT_RESOLUTION = 4096 // Encoder resolution
+BDN = 0 // Board No.
+PWMCHN = 0 // PWM channel
+FS = 10000 // Current loop sampling rate
+TM = 2000 // Speed check (2ms)
+FC = 500 // Speed check sampling rate
+PI = 3.14159265
+TWOPI = 6.2831853
+R_VU_AD = 225.0 // maximum VU value
+R_VW_AD = 225.0 // maximum VW value
+R_IU_AD = 31.25 // maximum IU value
+R_IW_AD = 31.25 // maximum IW value
+R_VDC_AD = 450.0 // maximum VDC value
+R_IDC_AD = 31.25 // maximum IDC value
+R_NRPM_REF_AD = 1500.0 // maximum speed
+R_TEMP_AD = 5.0
