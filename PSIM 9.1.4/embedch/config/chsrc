@@ -1,0 +1,27 @@
+// Note; (1) This file will be called each time 
+//           when ch is invoked as a safe shell.
+//#################################################################
+//  DO NOT MODIFY THIS PART OF CODE
+string_t chhome_;
+chhome_ = getenv("CHHOME");
+
+//if(_prompt != NULL) { // interactive mode 
+//  printf("Message from your system administrator goes here\n"); 
+//  license 
+//}
+
+//_path  = stradd(_path, ".;");
+
+/* modify and uncomment the line below to use locale wide characters
+setlocale(0, "Chinese-Simplified);
+*/
+
+#if strlen(_home)==3 &&  *(*((char **)&_home)+1)==':' /* C:\ */
+#if !access(stradd(_home, "_chsrc"), 4)
+#pragma import stradd(_home, "_chsrc");
+#endif
+#else
+#if !access(stradd(_home, "/_chsrc"), 4)
+#pragma import stradd(_home, "/_chsrc");
+#endif
+#endif

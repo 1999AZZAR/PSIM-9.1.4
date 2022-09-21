@@ -1,0 +1,92 @@
+// Note: This file is called through chrc each time when ch is invoked.
+// This file must be located in the user's home directory to be effective.
+//######################################################################
+// umask(0022);
+//_warning = 3;      // print all warning. default is 1 with serious warning message only
+//_formatf = ".6f";  // output format for float 
+//_formatd = ".6lf"; // output format for double
+//_ignoreeof = 1;    // ignore EOF. defalut is 0
+//_path = stradd(_path, "C:/add/command/path/here;");
+//_ppath = stradd(_ppath, "C:/add/package/path;");
+//_fpath = stradd(_fpath, "C:/add/function/path;");
+//_ipath = stradd(_ipath, "C:/add/headerfile/path;");
+//_lpath = stradd(_lpath, "C:/add/dynloadlib/path;");
+//_pathext = stradd(_pathext, ";.ch");
+
+/* for Web-Based Enterprise Management (WBEM) and system administrator */
+// _path = stradd(_path, "C:/Windows/System32/wbem;");
+/* for wordpad.exe */
+//_path = stradd(_path, "C:/Program Files/Windows NT/Accessories;");
+/* for winword.exe, you need to change Office11 if not Office version 11 */
+//_path = stradd(_path, "C:/Program Files/Microsoft Office/Office11;");
+
+// For using Visual Studio .NET 2008 in C:/Program Files/Microsoft Visual Studio 9.0/ 
+/* .NET 2008
+_path = stradd(_path, "C:/Program Files/Microsoft Visual Studio 9.0/VC/bin;");
+_path = stradd(_path, "C:/Program Files/Microsoft Visual Studio 9.0/COMMON7/IDE;");
+_path = stradd(_path, "C:/Program Files/Microsoft SDKs/Windows/v6.0A/bin;");
+putenv(stradd("LIB=C:/Program Files/Microsoft Visual Studio 9.0/VC/lib;",
+       "C:/Program Files/Microsoft SDKs/Windows/v6.0A/lib;",
+       "C:/Program Files/Microsoft Visual Studio 9.0/atlmfc/lib;", getenv("LIB")));
+putenv(stradd("INCLUDE=C:/Program Files/Microsoft Visual Studio 9.0/VC/include;",
+       "C:/Program Files/Microsoft SDKs/Windows/v6.0A/include;",
+       "C:/Program Files/Microsoft Visual Studio 9.0/VC/atlmfc/include;.;",
+        getenv("INCLUDE")));
+.NET 2008 */
+
+// For using Visual Studio .NET 2005 in C:/Program Files/Microsoft Visual Studio 8/ 
+/* .NET 2005
+_path = stradd(_path, "C:/Program Files/Microsoft Visual Studio 8/VC/bin;");
+_path = stradd(_path, "C:/Program Files/Microsoft Visual Studio 8/COMMON7/IDE;");
+putenv(stradd("LIB=C:/Program Files/Microsoft Visual Studio 8/VC/lib;",
+       "C:/Program Files/Microsoft Visual Studio 8/VC/PlatformSDK/lib;", 
+       "C:/Program Files/Microsoft Visual Studio 8/SDK/v2.0/lib;", getenv("LIB")));
+putenv(stradd("INCLUDE=C:/Program Files/Microsoft Visual Studio 8/VC/include;",
+       "C:/Program Files/Microsoft Visual Studio 8/VC/PlatformSDK/Include;",
+       "C:/Program Files/Microsoft Visual Studio 8/VC/atlmfc/include;.;",
+        getenv("INCLUDE")));
+.NET 2005 */
+
+// For using Visual Studio .NET 2003 in C:/Program Files/Microsoft Visual Studio .NET 2003/ 
+/*  .NET 2003
+_path = stradd(_path, "C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/bin;",
+                      "C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/IDE;",
+                      "C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools;");
+putenv(stradd("LIB=C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/lib;", 
+        "C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/PlatformSDK/lib;",
+        getenv("LIB")));
+putenv(stradd("INCLUDE=C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/include;",
+        "C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/PlatformSDK/Include;",
+        "C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/atlmfc/include;",
+        ".;", getenv("INCLUDE")));
+.NET 2003 */
+
+// For using Visual Studio VC++ 6.0 in C:/Program Files/Microsoft Visual Studio/
+/* VC++ 6.0
+_path = stradd(_path, "C:/Program Files/Microsoft Visual Studio/VC98/Bin;",
+              "C:/Program Files/Microsoft Visual Studio/Common/MSDev98/Bin;",
+              "C:/Program Files/Microsoft Visual Studio/Common/Tools;");
+putenv(stradd("LIB=", "C:/Program Files/Microsoft Visual Studio//VC98/Lib;",
+              "C:/Program Files/Microsoft Visual Studio/VC98/MFC/Lib;", getenv("LIB")));
+putenv(stradd("INCLUDE=", "C:/Program Files/Microsoft Visual Studio/VC98/include;",
+      "C:/Program Files/Microsoft Visual Studio/VC98/MFC/include;", ".;", getenv("INCLUDE")));
+VC++ 6.0 */
+
+/* default prompt "cwd> " becomes "cwdn #> " or "user@host:cwdn #> " */
+// _promp = stradd(_cwd, " ", _histnum, "> ");
+// _prompt = stradd(_user, "@", _host, ":", _cwdn, " ", _histnum, "> ");
+
+/***** add your personal aliases or commands here */
+// alias("ls", "ls -F");
+// alias("del", "del /P");
+// alias("copy", "copy /-Y"); // works in Win95/98/ME only
+// alias("move", "move /-Y"); // works in Win95/98/ME only
+// alias("rm", "rm -i");
+// alias("mv", "mv -i");
+// alias("cp", "cp -i");
+// alias("h",  "history");
+// alias("opentgz", "gzip -cd _argv[1] | tar -xvf -");
+// alias("findp", "find . -name _argv[1] -print");
+// alias("findg", "find . -name _argv[1] | xargs grep _arg[2]");
+// alias("go", "cd C:/Ch/demos/lib/libch/plot/ref");
+// alias("go", "cd C:\\Ch\\demos\\lib\\libch\\plot\\ref");

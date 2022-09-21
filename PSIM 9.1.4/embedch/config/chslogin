@@ -1,0 +1,44 @@
+// Note: (1) This file will be called at login time 
+//           if ch is used as a login shell.
+//           Keep this file brief
+//#########################################################
+/* printf("Message from your system administrator via chlogin\n"); */
+
+#if defined(_SUN_) || defined(_SOLARIS_)
+if(getenv("TERM") == NULL)
+  _term = "sun";           /* or putenv("TERM=sun") */
+#endif 
+#if defined(_SOLARIS_)
+/bin/cat -s /etc/motd 
+/usr/ucb/quota 
+/usr/bin/mail -e
+switch(_status) {
+  case 0:
+    printf("You have mail\n");
+    break;
+  default:
+    break;
+}
+#endif 
+
+#if defined(_WIN32_)
+#if strlen(_home)==3 &&  *(*((char **)&_home)+1)==':' /* C:\ */
+#if !access(stradd(_home, "_chslogin"), 4)
+#pragma import stradd(_home, "_chslogin");
+#endif
+#else
+#if !access(stradd(_home, "/_chslogin"), 4)
+#pragma import stradd(_home, "/_chslogin");
+#endif
+#endif
+#else /* Unix */
+#if strlen(_home)==1 /* root / */
+#if !access(stradd(_home, ".chslogin"), 4)
+#pragma import stradd(_home, ".chslogin");
+#endif
+#else
+#if !access(stradd(_home, "/.chslogin"), 4)
+#pragma import stradd(_home, "/.chslogin");
+#endif
+#endif
+#endif

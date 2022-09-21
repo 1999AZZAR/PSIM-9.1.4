@@ -1,0 +1,65 @@
+// Note: This file will be called each time when ch is invoked 
+//############################################################
+//  DO NOT MODIFY THIS PART OF CODE
+string_t chhome_;
+chhome_ = getenv("CHHOME");
+ // set system aliases 
+if(_prompt != NULL) { // interactive mode 
+  __declspec(global) char *g_dirstack;   
+  putenv(stradd("VIM=", getenv("CHHOME"), "/config/vim"));
+}
+alias("dirs", ". dirs"); 
+alias("pushd", ". pushd"); 
+alias("popd", ". popd");
+alias("alias", ". alias_.ch");
+alias("unalias", ". unalias_.ch");
+alias("which", ". which.ch");
+alias("FILE", "_FILE"); 
+//  DO NOT MODIFY THE CODE ABOVE
+
+putenv("PAGER=less -c");
+ // add current path 
+_path = stradd(_path, ".;");
+_fpath = stradd(_fpath, ".;");
+_ipath = stradd(_ipath, ".;");
+_lpath = stradd(_lpath, ".;");
+
+
+//{{PSIM START
+//   DO NOT MODIFY THE SECTION OF CODE BETWEEN  'PSIM START' AND 'PSIM END' 
+// PSIM_PATH = C:\\Program Files\\Powersim\\PSIM9.1.3_Trial\\PSIM 9.1.4_Professional_32\\PSIM9.1.4_softkey
+
+_ipath = stradd(_ipath, "C:\\Program Files\\Powersim\\PSIM9.1.3_Trial\\PSIM 9.1.4_Professional_32\\PSIM9.1.4_softkey\\embedch\\include;");
+
+_fpath = stradd(_fpath, "C:\\Program Files\\Powersim\\PSIM9.1.3_Trial\\PSIM 9.1.4_Professional_32\\PSIM9.1.4_softkey\\embedch\\lib\\libc;");
+_fpath = stradd(_fpath, "C:\\Program Files\\Powersim\\PSIM9.1.3_Trial\\PSIM 9.1.4_Professional_32\\PSIM9.1.4_softkey\\embedch\\lib\\libch;");
+_fpath = stradd(_fpath, "C:\\Program Files\\Powersim\\PSIM9.1.3_Trial\\PSIM 9.1.4_Professional_32\\PSIM9.1.4_softkey\\embedch\\lib\\libopt;");
+
+_lpath = stradd(_lpath, "C:\\Program Files\\Powersim\\PSIM9.1.3_Trial\\PSIM 9.1.4_Professional_32\\PSIM9.1.4_softkey\\embedch\\dl;");
+
+//}}PSIM END
+
+
+
+
+ // Additional _ipath, _fpath and _lpath statements should be added here:
+
+
+
+
+if(getenv("TMP") == NULL)
+  putenv(stradd("TMP=", getenv("TEMP")));
+
+/* uncomment the line below for multi-byte language
+_setlocale = 1;
+*/
+
+#if strlen(_home)==3 &&  *(*((char **)&_home)+1)==':'  
+#if !access(stradd(_home, "_chrc"), 4)
+#pragma import stradd(_home, "_chrc");
+#endif
+#else
+#if !access(stradd(_home, "/_chrc"), 4)
+#pragma import stradd(_home, "/_chrc");
+#endif
+#endif

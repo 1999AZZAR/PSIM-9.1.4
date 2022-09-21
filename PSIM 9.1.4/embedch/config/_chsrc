@@ -1,0 +1,11 @@
+// Note: (1) This file will be called through chsrc each time when safe Ch is invoked
+//#########################################################
+umask(0133);       //  created files rw for owner and r for others 
+//_warning = 3;       // default is 1
+
+//_path = stradd(_path, "C:/your/secure/sbin;"); 
+//_fpath = stradd(_fpath, ".;");
+//_ipath = stradd(_ipath, ".;");
+//_lpath = stradd(_lpath, ".;");
+//_ppath = stradd(_ppath, "/my/package/parh;");
+
