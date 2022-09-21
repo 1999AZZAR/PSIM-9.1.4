@@ -1,0 +1,242 @@
+m255
+K3
+13
+Z0 cModel Technology
+Z1 dP:\Trabajo\Cosimulacion\Envios\110415\examples\Example3\vhdl
+T_opt
+V^ogJ8D45O=3hb6N_;Q9Vi2
+04 38 10 work spwm_unipolarvariablepatron_modcoupler behavioral 0
+Z2 =1-08002741944b-4dc12e31-305-3f8
+Z3 o-quiet -auto_acc_if_foreign -work P:/TRABAJO/COSIMULACION/ENVIOS/110429/EXAMPLES/EXAMPLE3/work
+Z4 tExplicit 1
+Z5 OE;O;6.3j;37
+Emodcoupler_entity
+Z6 w1304505896
+Z7 dP:\Trabajo\Cosimulacion\Envios\110429\examples\Example3
+Z8 8P:/Trabajo/Cosimulacion/Envios/110429/examples/Example3/vhdl/ModCouplerTemporaryFile.vhd
+Z9 FP:/Trabajo/Cosimulacion/Envios/110429/examples/Example3/vhdl/ModCouplerTemporaryFile.vhd
+l0
+L1
+Z10 VjiPGb<3hM8PRb1mdjiPPh3
+Z11 OE;C;6.3j;37
+32
+Z12 o-work P:/TRABAJO/COSIMULACION/ENVIOS/110429/EXAMPLES/EXAMPLE3/work
+R4
+Z13 !s100 NDeeGD8infL0b;eeB]_b63
+Amodcoupler_architecture
+Z14 DEx4 work 17 modcoupler_entity 0 22 jiPGb<3hM8PRb1mdjiPPh3
+l5
+L3
+Z15 V`a:MB9W<=<K:jKQFRzl2F0
+R11
+32
+R12
+R4
+Z16 !s100 zO:zS:<lRC4UVSdE[:LWG3
+Eparam_table
+Z17 w1184164858
+Z18 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+Z19 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z20 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z21 8.\param_table.vhd
+Z22 F.\param_table.vhd
+l0
+L11
+Z23 Vz:89MjWVa0CzVO9cRYj3;0
+R11
+32
+R4
+Z24 !s100 KUf?<Z:ca=N^2Jl8ZzoBP0
+Abehavioral
+R18
+R19
+R20
+Z25 DEx4 work 11 param_table 0 22 z:89MjWVa0CzVO9cRYj3;0
+l49
+L21
+Z26 V3j<05A:Tl47GPE8`>O`]F0
+R11
+32
+Z27 Mx3 4 ieee 14 std_logic_1164
+Z28 Mx2 4 ieee 15 std_logic_arith
+Z29 Mx1 4 ieee 18 std_logic_unsigned
+R4
+Z30 !s100 >WVcZQ<Z<kIa>MWK0=YOm0
+Espwm_unipolarvariablepatron
+Z31 w1184158652
+R18
+R19
+R20
+Z32 8.\SPWM_unipolarVariable_patron.vhd
+Z33 F.\SPWM_unipolarVariable_patron.vhd
+l0
+L17
+Z34 Vn_A5_c<Vb8?4RS;D[emon1
+R11
+32
+R4
+Z35 !s100 ?MHGf27@@z?3T63kTOz4]1
+Abehavioral
+R18
+R19
+R20
+Z36 DEx4 work 27 spwm_unipolarvariablepatron 0 22 n_A5_c<Vb8?4RS;D[emon1
+l102
+L29
+Z37 Vic@[A?^UE3cK0<?]@BMA22
+R11
+32
+R27
+R28
+R29
+R4
+Z38 !s100 jXJH<K86>o:5k59;6HG8B3
+Espwm_unipolarvariablepatron_modcoupler
+R6
+R18
+R19
+R20
+R7
+R8
+R9
+l0
+L24
+Z39 VcN=gXz4:KZI3N3=?=]c`;0
+R11
+32
+R12
+R4
+Z40 !s100 45>b2oo:YYBIQ<NT5JoFL1
+Abehavioral
+R14
+R18
+R19
+R20
+Z41 DEx4 work 38 spwm_unipolarvariablepatron_modcoupler 0 22 cN=gXz4:KZI3N3=?=]c`;0
+l112
+L36
+Z42 VfMSP9jl^O;aUfX_ThNiOF0
+R11
+32
+R27
+R28
+R29
+R12
+R4
+Z43 !s100 k0NF6KZOkdCPceGWe?;L81
+Etable_10000
+Z44 w1184156050
+R18
+R19
+R20
+Z45 8.\table_15000.vhd
+Z46 F.\table_15000.vhd
+l0
+L8
+Z47 VNoU4CjXERN3aiXcPRZP3Z3
+R11
+32
+R4
+Z48 !s100 0cMdT4FkgXkj@_h0KBMD02
+Abehavioral
+R18
+R19
+R20
+Z49 DEx4 work 11 table_10000 0 22 NoU4CjXERN3aiXcPRZP3Z3
+l844
+L19
+Z50 V^KFO1HZ^k3]HbUfolG66P1
+R11
+32
+R27
+R28
+R29
+R4
+Z51 !s100 7f>F_9iC7nP=CN[9VT?BV3
+Etable_1500
+Z52 w1184158614
+R18
+R19
+R20
+Z53 8.\table_1500.vhd
+Z54 F.\table_1500.vhd
+l0
+L8
+Z55 V6`NU9095<6G;IO570Q=lZ3
+R11
+32
+R4
+Z56 !s100 KJ_355P>jZm=4JbUcMHQK2
+Abehavioral
+R18
+R19
+R20
+Z57 DEx4 work 10 table_1500 0 22 6`NU9095<6G;IO570Q=lZ3
+l172
+L19
+Z58 Vc:<iTkMeB67Y?Pj^^eF821
+R11
+32
+R27
+R28
+R29
+R4
+Z59 !s100 _1Q:GR5oDMMGG67L@2<MF3
+Etable_1600
+Z60 w1184164892
+R18
+R19
+R20
+Z61 8.\table_1600.vhd
+Z62 F.\table_1600.vhd
+l0
+L8
+Z63 VYVUXUR:6d=^]Ym_LCR12^1
+R11
+32
+R4
+Z64 !s100 _hCl8JHF;AZc1MIlUHfSC1
+Abehavioral
+R18
+R19
+R20
+Z65 DEx4 work 10 table_1600 0 22 YVUXUR:6d=^]Ym_LCR12^1
+l169
+L19
+Z66 VL4Ho@hKQclEfZg9]CeBW_0
+R11
+32
+R27
+R28
+R29
+R4
+Z67 !s100 U[eLeX<KGVnM?Pe=1;?5M2
+Etable_3000
+Z68 w1184156070
+R18
+R19
+R20
+Z69 8.\table_3000.vhd
+Z70 F.\table_3000.vhd
+l0
+L8
+Z71 Vi^O9LQfzZ`V^4HDZB<LlB3
+R11
+32
+R4
+Z72 !s100 2BHhYXSoASW<OJmg1IJmf1
+Abehavioral
+R18
+R19
+R20
+Z73 DEx4 work 10 table_3000 0 22 i^O9LQfzZ`V^4HDZB<LlB3
+l283
+L19
+Z74 Vk=l[PAnEjcK5lnOLE:O6`0
+R11
+32
+R27
+R28
+R29
+R4
+Z75 !s100 b^<?a>L94T5?i3I=eXdZN2
