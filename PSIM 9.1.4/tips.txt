@@ -1,0 +1,47 @@
+To turn part of a circuit into a subcircuit, select the circuit. Then right click to choose "Create Subcircuit", and define the subcircuit file name. 
+
+To create your own custom toolbar, go to "Options -> Custom Toolbars".
+
+To define keyboard shortcut for commands and elements, go to "Options -> Custom Keyboard".
+
+When sending a circuit that includes sub-circuits, custom DLLs or parameter files to others, it is easier to pack all the files into one package file by going to "File -> Save in Package File", and send the package file. 
+
+To place your company logo or any Bitmap images in the background of your schematic, go to "Edit -> Drawing -> Bitmap Image" and drag the mouse in the area where the image is to be placed. Select the bitmap file. You can move, rotate, flip or resize the bitmap in the schematic window.
+
+To find a particular element in the PSIM element library, go to "View -> Library Browser". From the "Find" edit field, type the keyword. For example, to find the THD block, type "THD".
+
+To create your own images for elements, go to "Edit -> Edit Library -> Edit library files". In the "Edit Image Library" dialog, create a "Secondary image" for any elements. You can switch between the images by going to the element’s property dialog’s "Color" tab.
+
+To connect two far away points in the circuit, use labels (Edit -> Label) instead of wiring. Labels with the same name are electrically connected to each other. \n\nNote: A label in a subcircuit is not connected to another label with the same name in the main circuit or aother subcircuit.
+
+In Simview, to measure the time and amplitude differences between two points, left click on the first point. Then move the cursor, and right click on the second point.
+
+To create your own elements using the built-in C compiler, go to "Elements -> Other -> Function Blocks -> Simplified C Block". For example to create a differentiator, set input=1, output=1 and place the following code in the code section:\n\ndouble timeConstant = 0.01;\nstatic double Last_x1 = 0.0;\ny1 = timeConstant * (x1 - Last_x1) / delt;\nLast_x1  = x1;\n\n\$PSIM.chm::/html/simplified_C_Block.html
+
+When simulating a motor drive system, use the mechanical-electrical interface block (under "Elements -> Power -> Mechanical Loads and Sensors") to connect your own machine/load models to the built-in machine/load models in PSIM.
+
+To add the commonly used subcircuits to Elements menu, place them in a folder called "User Defined" under the PSIM folder.\nYou could also create subfolders in the "User Defined" folder, and they will appear as submenus.
+
+Use the SimCoupler Module to run co-simulation between PSIM and Matlab/Simulink.\nPart of a system can be implemented and simulated in PSIM and the rest in Matlab/Simulink.\$http://www.powersimtech.com/manual/simcoupler_module_flier.pdf 
+
+When copying the PSIM schematic to a word processor (such as Microsoft Word), for better quality, choose the metafile format. Select the schematic, choose "Edit -> Copy to clipboard -> Metafile format". 
+
+When moving an element, hold down the shift button to enable the rubber band feature.\n\nWhen rubber band is enabled, elements stay connected to the rest of the circuit while being moved.  
+
+To run the simulation in the free run mode, in "Simulation Control" (that has the image of a clock), check the "Free run" checkbox.
+
+PsimBook Exercises are now available.\n\nPsimBook is an electronic book with interactive simulation capability. A PsimBook document can include text, equations, graphs, text boxes where text can be entered and saved, and electrical and control circuits which are fully interactive and can be simulated by PSIM, all in one integral environment.\$http://www.powersimtech.com/psimbook.html
+
+To display node voltages in the free-run simulation, connect scopes (under "Elements -> Other -> Probes") to the nodes.
+
+To convert a s-domain transfer function to a z-domain transfer function, use the s2z converter (under "Utilities -> s2z Converter").
+
+To display the current of a RLC branch or switch device in the free-run simulation, right click on the element, and from the menu, choose "Current Scopes".
+
+To calculate the losses (conduction losses and switching losses) of a switching device of a particular manufacturer, use the Thermal Module.
+
+To change parameter values in the free-run simulation, right click on the element, and from the menu, choose "Runtime Variables" and the parameter name. Then double click on the displayed parameter value. From the pop-up window, enter the value and click on "Apply" or use the up/down arrow key to increase/decrease the value.   
+
+To save all voltages and currents for display, in "Options -> Settings", under the "General" tab, check "Save all voltages and currents during simulation".
+
+To increase the line thickness of the schematic printout, in "Options -> Settings", under the "General" tab, set the line thickness to a higher number. Note that this change only affects the line thickness in the printout. It has no effect on the screen display.
