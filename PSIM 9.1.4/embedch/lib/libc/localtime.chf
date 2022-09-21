@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<time.h>
+
+struct tm *localtime(const time_t *clock) {
+    void *fptr;
+    struct tm *retval;
+
+    fptr = dlsym(_ChTime_handle, "localtime_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, localtime, clock);
+    return retval;
+}

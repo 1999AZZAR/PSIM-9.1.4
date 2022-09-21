@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+long long int llrintf(float x) {
+    void *fptr;
+    long long int retval;
+
+    fptr = dlsym(_Chmath_handle, "llrintf_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval, llrintf, x);
+    return retval;
+}

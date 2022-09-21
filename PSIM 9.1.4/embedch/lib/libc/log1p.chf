@@ -1,0 +1,9 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <math.h>
+
+double log1p(double x) {
+    return log(x+1);
+}
+
+
+

@@ -1,0 +1,19 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: localeconv.dl
+* Purpose: ANSI C function
+* History: created by Harry H. Cheng, 4/1/1997
+**********************************************************/
+#include <locale.h>
+struct lconv *localeconv(void) {
+  void *fptr;
+  struct lconv * retval;
+
+  fptr = dlsym(_ChLocale_handle, "localeconv_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return NULL;
+  }
+  dlrunfun(fptr,  &retval, localeconv);
+  return retval;
+}

@@ -1,0 +1,9 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: labs.c
+* Note: (1)  ANSI C function in stdlib.h
+* History: created by Harry H. Cheng, 8/20/96
+**********************************************************/
+long labs(long x) {
+  return abs(x);
+}

@@ -1,0 +1,19 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: mbtowc.dl
+* Purpose: ANSI C function 
+* History: created by Harry H. Cheng, 4/1/1997
+**********************************************************/
+#include <stdlib.h>
+int mbtowc(wchar_t *pwc, const char *s, size_t n) {
+  void *fptr;
+  int retval;
+
+  fptr = dlsym(_ChStdlib_handle, "mbtowc_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return -1;
+  }
+  dlrunfun(fptr, &retval, mbtowc, pwc, s, n);
+  return retval;
+}

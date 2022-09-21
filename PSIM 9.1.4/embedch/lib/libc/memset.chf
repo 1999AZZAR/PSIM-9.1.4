@@ -1,0 +1,4 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+void *memset(void *s, int c, size_t n) {
+  return memset(s, c, n);
+}

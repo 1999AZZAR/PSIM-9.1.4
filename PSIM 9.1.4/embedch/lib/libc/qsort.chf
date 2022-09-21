@@ -1,0 +1,19 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: qsort.chf
+* Purpose: ANSI C function 
+* History: created by Harry H. Cheng, 4/1/1997
+**********************************************************/
+#include <sys/types.h>
+#include <stdlib.h>
+void qsort(void *base, size_t nel, size_t size, int (*compare)(void *, void *)) {
+  void *fptr;
+
+  fptr = dlsym(_ChStdlib_handle, "qsort_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return;
+  }
+  dlrunfun(fptr, NULL, qsort, base, nel, size, compare);
+  return;
+}

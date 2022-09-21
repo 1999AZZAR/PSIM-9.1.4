@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+double nexttoward(double x, long double y) {
+    void *fptr;
+    double retval;
+
+    fptr = dlsym(_Chmath_handle, "nexttoward_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval, nexttoward, x, y);
+    return retval;
+}

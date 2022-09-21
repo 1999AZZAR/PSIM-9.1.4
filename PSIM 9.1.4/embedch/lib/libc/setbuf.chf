@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: setbuf.c
+*
+* Note: (1)  ANSI C function in standard lib stdio.h
+*       (2)  set buffering strategy for I/O
+* History: created by Harry H. Cheng, 8/20/94
+**********************************************************/
+#include<stdio.h>
+void setbuf(_FILE *stream, char *buf)
+{
+  if(buf == NULL)
+    setvbuf(stream, NULL, _IONBF, 0);
+  else 
+    setvbuf(stream, buf, _IOFBF, BUFSIZ);
+}

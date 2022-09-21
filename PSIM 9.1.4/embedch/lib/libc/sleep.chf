@@ -1,0 +1,19 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: sleep.dl
+* Purpose: Unix system call 
+* History: created by Harry H. Cheng, 4/1/1997
+**********************************************************/
+#include <unistd.h>
+unsigned sleep(unsigned seconds) {
+  void *fptr;
+  unsigned retval;
+
+  fptr = dlsym(_ChUnistd_handle, "sleep_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return -1;
+  }
+  dlrunfun(fptr, &retval, sleep, seconds);
+  return retval;
+}

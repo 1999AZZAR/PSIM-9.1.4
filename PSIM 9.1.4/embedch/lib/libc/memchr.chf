@@ -1,0 +1,22 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: memchr.c
+*
+* Note: (1)  ANSI C function in standard lib string.h
+*       (2)  find the first occurance of c in s[]
+*
+* History: created by Harry H. Cheng, 2/19/1994
+**********************************************************/
+#include <string.h>
+void *memchr(const void *s, int c, size_t n){
+  unsigned char uc = c;
+  unsigned char *su;
+
+  if(s == NULL)        /* input is a NULL string */
+    return NULL;
+  for(su=s; 0 < n; ++su, --n) {
+   if(*su == uc) 
+     return ((void *)su);
+  }
+  return NULL;
+}

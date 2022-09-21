@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: rewind.c
+*
+* Note: (1)  ANSI C function in standard lib stdio.h
+*       (2)  reset a stream to its beginning
+* History: created by Harry H. Cheng, 8/20/94
+**********************************************************/
+#include <stdio.h>
+void rewind(_FILE *stream)
+{
+  fseek(stream, 0L, SEEK_SET);
+}

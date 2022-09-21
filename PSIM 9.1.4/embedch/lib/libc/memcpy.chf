@@ -1,0 +1,4 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+ void *memcpy(void *s1, const void *s2, size_t n) {
+   return memcpy(s1, s2, n);
+ }

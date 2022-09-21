@@ -1,0 +1,23 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdarg.h>
+#include <sys/types.h>
+restrict int open(const char *path, int oflag, /* mode_t mode */...) {
+    int vacount;
+    va_list ap;
+
+    va_start(ap, oflag);
+    vacount = va_count(ap);
+    if(vacount==0) {
+      return open(path, oflag);
+    }
+    else if(vacount==1) {
+      mode_t mode;
+      mode = va_arg(ap, int); 
+      return open(path, oflag, mode);
+    }
+    else 
+      fprintf(_stderr, "Error: invalid number of arguments passed to %s()\n", __func__);
+    va_end(ap);
+   return -1;
+}
+

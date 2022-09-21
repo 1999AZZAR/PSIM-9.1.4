@@ -1,0 +1,17 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: rewinddir.dl
+* Purpose: POSIX function for handling directory
+* History: created by Harry H. Cheng, 4/1/1997
+**********************************************************/
+#include <dirent.h>
+void rewinddir(DIR *dirp) {
+  void *fptr;
+
+  fptr = dlsym(_ChDirent_handle, "rewinddir_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return;
+  }
+  dlrunfun(fptr, NULL, rewinddir, dirp);
+}

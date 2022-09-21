@@ -1,0 +1,4 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+int lockf(int fildes, int function, long size) {
+   return _lockf(fildes, function, size);
+}

@@ -1,0 +1,14 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdlib.h>
+int mkstemp(char *template) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChStdlib_handle, "mkstemp_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval,mkstemp, template);
+    return retval;
+}

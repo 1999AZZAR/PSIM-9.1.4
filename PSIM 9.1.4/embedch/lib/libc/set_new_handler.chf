@@ -1,0 +1,11 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: set_new_handler.c
+* Note: (1)  C++ function 
+* History: created by Harry H. Cheng, 8/21/1998
+**********************************************************/
+void (*set_new_handler (void(*newhandler)()))() {
+    void (*retval)();
+    retval = _set_new_handler((void*)newhandler);
+    return retval;
+}
