@@ -1,0 +1,235 @@
+m255
+K3
+13
+Z0 cModel Technology
+Z1 dP:\Trabajo\Cosimulacion\Envios\110415\examples\Example2\vhdl
+T_opt
+V^HMdRCO5_?5<QAhWTMOWE0
+04 25 11 work top_controller_modcoupler estructural 0
+Z2 =1-08002741944b-4dc12a31-26c-6ec
+Z3 o-quiet -auto_acc_if_foreign -work P:/TRABAJO/COSIMULACION/ENVIOS/110429/EXAMPLES/EXAMPLE2/work
+Z4 tExplicit 1
+Z5 OE;O;6.3j;37
+Eadc_controller
+Z6 w1299057716
+Z7 DPx4 work 14 controllerpack 0 22 WbSA@E4<K1Z:E^Y8DN3Ig2
+Z8 DPx4 ieee 16 std_logic_signed 0 22 <9<Kcl:S52:oW`F]FQhb20
+Z9 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z10 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z11 8.\ADC_controller.vhd
+Z12 F.\ADC_controller.vhd
+l0
+L21
+Z13 V<G<AX:S[W7l;T5E=]H?6b3
+Z14 OE;C;6.3j;37
+32
+R4
+Z15 !s100 FNh5b5S9jAR8@QSH?DhN82
+Acomportamental
+R7
+R8
+R9
+R10
+Z16 DEx4 work 14 adc_controller 0 22 <G<AX:S[W7l;T5E=]H?6b3
+l32
+L28
+Z17 VKeK1XSiAHX_72AT?3B9>@0
+R14
+32
+Z18 Mx4 4 ieee 14 std_logic_1164
+Z19 Mx3 4 ieee 15 std_logic_arith
+Z20 Mx2 4 ieee 16 std_logic_signed
+Z21 Mx1 4 work 14 controllerpack
+R4
+Z22 !s100 WE^jTVV;Eo@3:6D2<=nUU3
+Pcontrollerpack
+R8
+R9
+R10
+Z23 w1299057842
+Z24 8.\compensator_pack.vhd
+Z25 F.\compensator_pack.vhd
+l0
+L19
+Z26 VWbSA@E4<K1Z:E^Y8DN3Ig2
+R14
+32
+Z27 Mx3 4 ieee 14 std_logic_1164
+Z28 Mx2 4 ieee 15 std_logic_arith
+Z29 Mx1 4 ieee 16 std_logic_signed
+R4
+Z30 !s100 k_f>6`dMZ5bDklGePjW@b2
+Bbody
+Z31 DBx4 work 14 controllerpack 0 22 WbSA@E4<K1Z:E^Y8DN3Ig2
+R8
+R9
+R10
+l0
+L97
+Z32 Vk=]WF6lN`biLWg>8SUlg`1
+R14
+32
+R27
+R28
+R29
+R4
+nbody
+Z33 !s100 56Y=NjV4TVFbK>R?AWL0O2
+Edpwm
+Z34 w1299055398
+R8
+R9
+R7
+R10
+Z35 8.\DPWM.vhd
+Z36 F.\DPWM.vhd
+l0
+L19
+Z37 VN_h[aMWzE7Eb4SYazcDT<1
+R14
+32
+R4
+Z38 !s100 :oQ0RbU3>CAeLN028MPc63
+Acomportamental
+R8
+R9
+R7
+R10
+Z39 DEx4 work 4 dpwm 0 22 N_h[aMWzE7Eb4SYazcDT<1
+l49
+L40
+Z40 VX:S=b[XW2CXQh?9H0NzR70
+R14
+32
+R18
+Z41 Mx3 4 work 14 controllerpack
+R28
+R29
+R4
+Z42 !s100 _^[M=[`KYC`KL5OWVd8;11
+Emodcoupler_entity
+Z43 w1304504873
+Z44 dP:\Trabajo\Cosimulacion\Envios\110429\examples\Example2
+Z45 8P:/Trabajo/Cosimulacion/Envios/110429/examples/Example2/vhdl/ModCouplerTemporaryFile.vhd
+Z46 FP:/Trabajo/Cosimulacion/Envios/110429/examples/Example2/vhdl/ModCouplerTemporaryFile.vhd
+l0
+L1
+Z47 VbMUDfe^a@AobD7eXO9FlD3
+R14
+32
+Z48 o-work P:/TRABAJO/COSIMULACION/ENVIOS/110429/EXAMPLES/EXAMPLE2/work
+R4
+Z49 !s100 NDeeGD8infL0b;eeB]_b63
+Amodcoupler_architecture
+Z50 DEx4 work 17 modcoupler_entity 0 22 bMUDfe^a@AobD7eXO9FlD3
+l5
+L3
+Z51 VbQGQ_0C2]M2Z1R4X=Sd[T2
+R14
+32
+R48
+R4
+Z52 !s100 zO:zS:<lRC4UVSdE[:LWG3
+Eregulador
+Z53 w1299057666
+R7
+Z54 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+R8
+R9
+R10
+Z55 8.\compensator.vhd
+Z56 F.\compensator.vhd
+l0
+L20
+Z57 V=gbBWO?H2LCiY]9mTjB481
+R14
+32
+R4
+Z58 !s100 ahZbmZ?fNGIlFBb[]om;?3
+Aestructural
+R7
+R54
+R8
+R9
+R10
+Z59 DEx4 work 9 regulador 0 22 =gbBWO?H2LCiY]9mTjB481
+l59
+L33
+Z60 V:a4g0@zj:g?==3HahNIMj1
+R14
+32
+Z61 Mx5 4 ieee 14 std_logic_1164
+Z62 Mx4 4 ieee 15 std_logic_arith
+Z63 Mx3 4 ieee 16 std_logic_signed
+Z64 Mx2 4 ieee 11 numeric_std
+R21
+R4
+Z65 !s100 ;k1Mo^9DbH<:I1<XE3V6?2
+Etop_controller
+Z66 w1302888318
+R7
+R8
+R9
+R10
+Z67 8.\top_controller.vhd
+Z68 F.\top_controller.vhd
+l0
+L22
+Z69 VdRJ`LT0@o;m9KDCNIUi710
+R14
+32
+R4
+Z70 !s100 @Ye[^>;ckQGlCa_FF@lA_2
+Aestructural
+R7
+R8
+R9
+R10
+Z71 DEx4 work 14 top_controller 0 22 dRJ`LT0@o;m9KDCNIUi710
+l75
+L36
+Z72 VcN8b`Jb_?FZ5F9HG3_j4c2
+R14
+32
+R18
+R19
+R20
+R21
+R4
+Z73 !s100 NnB?U@d:0miQ^:Pb2@D@C3
+Etop_controller_modcoupler
+R43
+R7
+R8
+R9
+R10
+R44
+R45
+R46
+l0
+L29
+Z74 V]=U7RcE^fiM25j0W@18iV0
+R14
+32
+R48
+R4
+Z75 !s100 a>O3AcoJYZbNcg[>W5CJo0
+Aestructural
+R50
+R7
+R8
+R9
+R10
+Z76 DEx4 work 25 top_controller_modcoupler 0 22 ]=U7RcE^fiM25j0W@18iV0
+l85
+L43
+Z77 VR<X0h7>jZZFIV>0Q3_`1V3
+R14
+32
+R18
+R19
+R20
+R21
+R48
+R4
+Z78 !s100 3D9P]U2Sk@:e`E5VIIhFb1
