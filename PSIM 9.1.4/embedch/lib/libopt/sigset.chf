@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<signal.h>
+
+void (*sigset (int sig, void (*disp)(int)))(int) {
+  void *fptr;
+  void (*retval)(int);
+
+  fptr = dlsym(_ChSignal_handle, "sigset_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return SIG_ERR;
+  }
+  dlrunfun(fptr, &retval, sigset, sig, disp);
+  return retval;
+}

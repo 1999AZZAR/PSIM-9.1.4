@@ -1,0 +1,18 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+/***********************************************************
+* Function File: writev.dl
+* History: created by Harry H. Cheng, 4/1/1997
+**********************************************************/
+#include <sys/uio.h>
+ssize_t writev(int fildes, struct iovec *iov, int iovcnt) {
+  void *fptr;
+  ssize_t retval;
+
+  fptr = dlsym(_ChSysUio_handle, "writev_chdl");
+  if(fptr == NULL)  {
+     printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+     return -1;
+  }
+  dlrunfun(fptr, &retval, writev, fildes, iov, iovcnt);
+  return retval;
+}

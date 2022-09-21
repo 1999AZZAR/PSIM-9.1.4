@@ -1,0 +1,25 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <stdarg.h>
+#include <syslog.h>
+
+void syslog(int priority, const char *message, ...) {
+    va_list ap;
+    int vacount;
+    char *message_temp; 
+    void *fptr;
+
+    fptr = dlsym(_ChSyslog_handle, "syslog_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+    }
+ 
+    va_start(ap, message);
+    vacount = va_count(ap);
+    dlrunfun(fptr, NULL, syslog, priority, message);
+    while(vacount > 0)
+    {
+      message_temp = va_arg(ap, const char *);
+      dlrunfun(fptr, NULL, syslog, priority, message_temp);
+      vacount--;
+    }
+}

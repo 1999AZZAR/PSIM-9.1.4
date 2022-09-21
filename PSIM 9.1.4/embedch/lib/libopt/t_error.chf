@@ -1,0 +1,13 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <tiuser.h>      
+
+void t_error(char *errmsg) {
+    void *fptr;
+
+    fptr = dlsym(_ChTiuser_handle, "t_error_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return;
+    }
+    dlrunfun(fptr, NULL, t_error, errmsg);
+}

@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <winsock.h> 
+
+HANDLE WSAAsyncGetHostByAddr(HWND hWnd, u_int wMsg, const char FAR *addr, 
+                     int len, int type, char FAR *buf, int buflen) {
+    void *fptr;
+    HANDLE retval;
+
+    fptr = dlsym(_ChSysSocket_handle, "WSAAsyncGetHostByAddr_chdl");
+    if(fptr == NULL)  {
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return 0;
+    }
+    dlrunfun(fptr, &retval, WSAAsyncGetHostByAddr, hWnd, wMsg, addr, len, type,                               buf, buflen);
+    return retval;
+}

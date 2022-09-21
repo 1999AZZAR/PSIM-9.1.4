@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+
+size_t wcsftime(wchar_t *str1, size_t maxsize, const wchar_t *format, 
+				const struct tm *timeptr) { 
+    void *fptr;
+    size_t retval;
+
+    fptr = dlsym(_ChWchar_handle, "wcsftime_chdl");
+    if(fptr == NULL) { 
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return 0;
+    }
+    dlrunfun(fptr, &retval, wcsftime, str1, maxsize, format, timeptr);
+    return retval;
+}

@@ -1,0 +1,19 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+
+wint_t ungetwc(wint_t wc, FILE *stream) {
+    void *fptr;
+    wint_t retval;
+
+#if defined(_WIN32_)
+    dlrunfun(_Ch_ungetwc, &retval, ungetwc, wc, stream);
+#else
+    fptr = dlsym(_ChWchar_handle, "ungetwc_chdl");
+    if(fptr == NULL) { 
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return WEOF;
+    }
+    dlrunfun(fptr, &retval, ungetwc, wc, stream);
+#endif
+    return retval;
+}

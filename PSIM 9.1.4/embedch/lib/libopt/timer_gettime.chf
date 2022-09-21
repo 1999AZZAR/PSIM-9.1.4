@@ -1,0 +1,16 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<time.h>
+
+int timer_gettime(timer_t timerid,
+                      struct itimerspec *value) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChTime_handle, "timer_gettime_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, timer_gettime, timerid, value);
+    return retval;
+}

@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <libintl.h>
+
+char *textdomain(const char *domainname) {
+    void *fptr;
+    char * retval;
+
+    fptr = dlsym(_ChLibintl_handle, "textdomain_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, textdomain, domainname);
+    return retval;
+}

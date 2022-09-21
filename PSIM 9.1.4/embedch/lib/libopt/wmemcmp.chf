@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+
+int wmemcmp(const wchar_t *str1, const wchar_t *str2, size_t count) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChWchar_handle, "wmemcmp_chdl");
+    if(fptr == NULL) { 
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return NULL;
+    }
+    dlrunfun(fptr, &retval, wmemcmp, str1, str2, count);
+    return retval;
+}

@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wctype.h>
+
+wint_t towctrans(wint_t wc, wctrans_t desc) {
+    void *fptr;
+    wint_t retval;
+
+    fptr = dlsym(_ChWctype_handle, "towctrans_chdl");
+    if(fptr == NULL) { 
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return NULL;
+    }
+    dlrunfun(fptr, &retval, towctrans, wc, desc);
+    return retval;
+}

@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include<netdir.h>
+
+struct netbuf *uaddr2taddr(struct netconfig  *config, char  *uaddr) {
+    void *fptr;
+    struct netbuf * retval;
+
+    fptr = dlsym(_ChNetdir_handle, "uaddr2taddr_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return NULL;
+    }
+    dlrunfun(fptr, &retval, uaddr2taddr, config, uaddr);
+    return retval;
+}

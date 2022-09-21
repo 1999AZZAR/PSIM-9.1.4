@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wctype.h>
+
+wctrans_t wctrans(const char *prop) {
+    void *fptr;
+    wctrans_t retval;
+
+    fptr = dlsym(_ChWctype_handle, "wctrans_chdl");
+    if(fptr == NULL) {
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return 0;
+    }
+    dlrunfun(fptr, &retval, wctrans, prop);
+    return retval;
+}

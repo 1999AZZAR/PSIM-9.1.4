@@ -1,0 +1,18 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <wchar.h>
+int vfwprintf(FILE *filename, const wchar_t *format, va_list ap) {
+    void *fptr;
+    int retval;
+
+#if defined(_WIN32_)
+    dlrunfun(_Ch_vfwprintf, &retval,vfwprintf, filename, format, ap);
+#else
+    fptr = dlsym(_ChWchar_handle, "vfwprintf_chdl");
+    if(fptr == NULL) {
+        fprintf(_stderr, "Error: %s(): dlsym(): %s\n", __func__,  dlerror());
+        return -1;
+    }
+    dlrunfun(fptr, &retval,vfwprintf, filename, format, ap);
+#endif
+    return retval;
+}

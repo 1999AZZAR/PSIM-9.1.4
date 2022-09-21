@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <tiuser.h>  
+
+int t_optmgmt(int fildes, struct t_optmgmt *req, struct t_optmgmt *ret) {
+    void *fptr;
+    int retval;
+
+    fptr = dlsym(_ChTiuser_handle, "t_optmgmt_chdl");
+    if(fptr == NULL)  {
+       printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+       return -1;
+    }
+    dlrunfun(fptr, &retval, t_optmgmt, fildes, req, ret);
+    return retval;
+}
