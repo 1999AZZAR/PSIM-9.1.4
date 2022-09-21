@@ -1,0 +1,15 @@
+/* Copyright (c) 2001-2009 by SoftIntegration, Inc. All Rights Reserved */
+#include <winsock.h>
+
+BOOL WSAIsblocking() {
+    void *fptr;
+    BOOL retval;
+
+    fptr = dlsym(_ChSysSocket_handle, "WSAIsBlocking_chdl");
+    if(fptr == NULL)  {
+        printf("Error: %s(): dlsym(): %s\n", __func__, dlerror());
+        return FALSE;
+    }
+    dlrunfun(fptr, &retval, WSAIsBlocking); 
+    return retval;
+}
