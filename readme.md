@@ -9,8 +9,11 @@
 	6. find firewall.bat file and run it as admin to block all internet connection to this program (optional)                                                     
 	7. Schematic password for v9 = psim2009MA1 
 
+<div>
+<samp>
 <h2>License</h2>
-GNU; see LICENSE for details.
+<a href="https://github.com/1999azzar/PSIM-9.1.4/LICENSE"><img src="https://img.shields.io/github/license/1999azzar/PSIM-9.1.4?style=for-the-badge" height="25"
+     alt="CodeFactor" /></a>
 
 <h2>Disclaimer</h2>
 This project is not an official PSIM software. It is not supported by PSIM and PSIM specifically disclaims all warranties as to its quality, merchantability, or fitness for a particular purpose
