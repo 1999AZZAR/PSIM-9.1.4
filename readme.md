@@ -13,7 +13,10 @@
 <samp>
 <h2>License</h2>
 <a href="https://github.com/1999AZZAR/PSIM-9.1.4/blob/master/LICENSE"><img src="https://img.shields.io/github/license/1999azzar/PSIM-9.1.4?style=for-the-badge" height="25"
-     alt="CodeFactor" /></a>
+     alt="LICENSE" /></a>
 
 <h2>Disclaimer</h2>
 This project is not an official PSIM software. It is not supported by PSIM and PSIM specifically disclaims all warranties as to its quality, merchantability, or fitness for a particular purpose
+
+-----
+<h3>this project also contain some psim <a href="https://github.com/1999AZZAR/PSIM-9.1.4/tree/master/PSIM%209.1.4/examples" target="_blank">examples</a> project that u can try</h3>
