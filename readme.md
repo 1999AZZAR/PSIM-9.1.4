@@ -8,3 +8,9 @@ how to use :
 	5. Double click "Register PSIM.reg" file to Register your copy of PSIM 
 	6. find firewall.bat file and run it as admin to block all internet connection to this program (optional)                                                     
 	7. Schematic password for v9 = psim2009MA1 
+
+License
+GNU; see LICENSE for details.
+
+Disclaimer
+This project is not an official PSIM software. It is not supported by PSIM and PSIM specifically disclaims all warranties as to its quality, merchantability, or fitness for a particular purpose
