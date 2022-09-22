@@ -3,9 +3,13 @@
 	<li>download this repo</li>
 	<li>extract downloaded zip file</li>
 	<li>copy all extracted files/folder to any folder in your PC</li>
-	<li>in PSIM9.1.4 folder find "PSIM.exe" and add Shortcut of that in your desktop (copy PSIM.exe and paste Shortcut in desktop)"optional"</li>
+	<li>(optional) in PSIM9.1.4 folder find "PSIM.exe" and add Shortcut of that in your desktop :</li>
+	<ul>
+	<li>copy PSIM.exe and paste Shortcut in desktop</li>
+	</ul>
 	<li>Double click "Register PSIM.reg" file to Register your copy of PSIM</li>
-	<li>download <a href="https://github.com/1999AZZAR/bash-firewall-script" target="_blank">bash-firewall-script</a> and follow the step (optional)</li>                     <li>and basically its done</li>
+	<li>(optional) download <a href="https://github.com/1999AZZAR/bash-firewall-script" target="_blank">bash-firewall-script</a> and follow the step </li>
+	<li>and basically its done</li>
 	<li>Schematic password for v9 = psim2009MA1 (if there any)</li>
 	</ol>
 <div>
