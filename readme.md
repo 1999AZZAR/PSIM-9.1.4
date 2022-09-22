@@ -22,4 +22,4 @@
 This project is not an official PSIM software. It is not supported by PSIM and PSIM specifically disclaims all warranties as to its quality, merchantability, or fitness for a particular purpose
 
 -----
-<h3>this project also contain some psim <a href="https://github.com/1999AZZAR/PSIM-9.1.4/tree/master/PSIM%209.1.4/examples" target="_blank">examples</a> project that u can try</h3>
+<h3>This repository also has several <a href="https://github.com/1999AZZAR/PSIM-9.1.4/tree/master/PSIM%209.1.4/examples" target="_blank">examples</a> of PSIM projects that you can try and use as study material or your project reference</h3>
