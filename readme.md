@@ -12,7 +12,7 @@
 <div>
 <samp>
 <h2>License</h2>
-<a href="https://github.com/1999azzar/PSIM-9.1.4/LICENSE"><img src="https://img.shields.io/github/license/1999azzar/PSIM-9.1.4?style=for-the-badge" height="25"
+<a href="https://github.com/1999AZZAR/PSIM-9.1.4/blob/master/LICENSE"><img src="https://img.shields.io/github/license/1999azzar/PSIM-9.1.4?style=for-the-badge" height="25"
      alt="CodeFactor" /></a>
 
 <h2>Disclaimer</h2>
