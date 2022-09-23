@@ -251,12 +251,9 @@ void REQUESTUSERDATA(int nRequestReason,
 	Internal_DLL_Block_RuntimeData * pData2 = NULL;
 
 	switch(	nRequestReason )						
-	{
-		case ACTION_DLL_SELECTED: //New Element was placed on the schematic window and this DLL was selected.
-			{
-				switch(nRequestCode)
-				{
-					case REQUEST_BEGIN:
+	{case ACTION_DLL_SELECTED: //New Element was placed on the schematic window and this DLL was selected.
+			{switch(nRequestCode)
+				{case REQUEST_BEGIN:
 						//Allocate User data
 						assert(*ptrUserData == NULL);
 						*ptrUserData = new Internal_DLL_Block_RuntimeData();
@@ -277,8 +274,7 @@ void REQUESTUSERDATA(int nRequestReason,
 						//		 char * szParam1(Read, Write): Node Label  20 characters maximum.
 						nNode = nRequestParam;
 						switch(nNode)
-						{
-							case 0:
+						{case 0:
 								strcpy(szParam1, "VDD/P0");
 								break;
 
@@ -344,9 +340,7 @@ void REQUESTUSERDATA(int nRequestReason,
 
 							default:
 								//assert(0);
-								break;
-
-						}
+								break;}
 						return;
 
 					case REQUEST_PARAM_COUNT:	//Define number of input parameters
@@ -366,13 +360,11 @@ void REQUESTUSERDATA(int nRequestReason,
 
 
 					case REQUEST_PARAM_INFO:	//Define input parameter names
-						{
-							// char * szParam1: parameter Label  20 characters maximum.
+						{// char * szParam1: parameter Label  20 characters maximum.
 							// char * szParam2: parameter default value  50 characters maximum.
 							// int * pnParam1:  1: Show Display check box     0: Do not show Display check box
 							switch(nRequestParam)						
-							{
-								//One Parameter
+							{//One Parameter
 								case 0:
 									strcpy(szParam1, "Flag for Exact Switching Calculation");
 									strcpy(szParam2, "1"); //Default Value
@@ -389,44 +381,26 @@ void REQUESTUSERDATA(int nRequestReason,
 									strcpy(szParam1, "Variable 3");
 									strcpy(szParam2, "90");//Default Value
 									*pnParam1 = 0; // Do not Show Display check box
-									break;
-							}
-						}
+									break;}}
 						return;
-
-
 						default:
-							return;
-				}
-			}
+							return;}}
 			return;
 
-
-
 		case ACTION_ELEMENT_LOAD:
-			{
-				switch(nRequestCode)
-				{
-					case REQUEST_BEGIN:
+			{switch(nRequestCode)
+				{case REQUEST_BEGIN:
 						//Allocate User data
 						assert(*ptrUserData == NULL);
 						*ptrUserData = new Internal_DLL_Block_RuntimeData();
 						pData = (Internal_DLL_Block_RuntimeData *)(*ptrUserData);
 
 						// Copy saved data in schematic file to szTemp. in this case only the DLL version was saved
-						if( *pnParam1 == 0 )
-						{
-							szTemp[0] = '\0';
-						}
-						else
-						{
-							memcpy(szTemp, szParam1, *pnParam1);
-						}
-
+						if( *pnParam1 == 0 ){szTemp[0] = '\0';}
+						else{memcpy(szTemp, szParam1, *pnParam1);}
 						//Compare versions
 						if( atof(MyApp_VERSION) < atof(szTemp) )
-						{
-							::MessageBox(NULL, "Data was saved by Newer version of \"My Program\". Please upgrade.", "My Program", MB_OK);
+						{::MessageBox(NULL, "Data was saved by Newer version of \"My Program\". Please upgrade.", "My Program", MB_OK);
 							//Continue loading anyway
 						}
 						
@@ -435,8 +409,6 @@ void REQUESTUSERDATA(int nRequestReason,
 							pData->LoadFile(szParam2);
 						}
 						return;
-
-
 					case REQUEST_IN_OUT_NODES:
 						// Get the number of nodes
 						// int * pnParam1(Read, Write):  returns the number of nodes.
@@ -444,8 +416,6 @@ void REQUESTUSERDATA(int nRequestReason,
 					//	*pnParam1 = 0;
 					//	*pnParam2 = 0;
 						return;
-
-
 					case REQUEST_INPUT_NODE_INFO:
 						//	 this is called several times with  "nRequestParam" set to  0 to 'number of input nodes - 1 (set in REQUEST_IN_OUT_NODES)'
 						//		 Get Input node information
@@ -468,18 +438,14 @@ void REQUESTUSERDATA(int nRequestReason,
 							default:
 								//assert(0);
 								break;
-
 						}
 						return;
-
 					case REQUEST_OUTPUT_NODE_INFO:
 						//	 this is called several times with  "nRequestParam" set to  0 to 'number of output nodes - 1 (set in REQUEST_IN_OUT_NODES)'
 						//		 Get Output node information
 						//		 char * szParam1(Read, Write): Node Label  20 characters maximum.
 						//strcpy(szParam1, pData->GetOutputNodeLabel(nRequestParam));
 						return;
-
-
 					//  Schematic file saves and restores parameter information from last session. unless DLL version was changed 
 					//     and parameter number or labels are different, there is no need to modify parameter information
 					case REQUEST_PARAM_COUNT:
@@ -487,15 +453,9 @@ void REQUESTUSERDATA(int nRequestReason,
 
 					case REQUEST_PARAM_INFO:
 						return;
-
-
 					default:
-							return;
-				}
-			}
+							return;}}
 			return;
-
-
 		case ACTION_ELEMENT_SAVE:  //Saving element to schematic file
 			//		char * szParam1(Write only):  copy binary data to be saved in .SCH file(DLL version, File Version, ...) (maximum 100 bytes)
 			//		int * pnParam1(Write only):   number of valid bytes in szParam1
@@ -503,9 +463,6 @@ void REQUESTUSERDATA(int nRequestReason,
 			memcpy(szParam1, MyApp_VERSION, strlen(MyApp_VERSION)+1);
 			*pnParam1 = strlen(MyApp_VERSION)+1; //size of data
 			return;
-
-
-
 		case ACTION_INPUTFILE_CHANGED:
 			{
 				switch(nRequestCode)
@@ -519,8 +476,7 @@ void REQUESTUSERDATA(int nRequestReason,
 							//Reject File.
 							*pnParam1 = 0;
 							delete pData2;
-						}
-						
+						}	
 						// file was good
 						if( pData != NULL )
 						{
@@ -529,8 +485,6 @@ void REQUESTUSERDATA(int nRequestReason,
 							*ptrUserData = pData = pData2;
 						}
 						return;
-
-
 					case REQUEST_IN_OUT_NODES:
 						// Get the number of Input and Output nodes
 						// int * pnParam1(Read, Write):  returns the number of input nodes.
@@ -538,8 +492,6 @@ void REQUESTUSERDATA(int nRequestReason,
 						*pnParam1 = pData->m_nInputNodes;
 						*pnParam2 = pData->m_nOutputNodes;
 						return;
-
-
 					case REQUEST_INPUT_NODE_INFO:
 						//	 this is called several times with  "nRequestParam" set to  0 to 'number of input nodes - 1 (set in REQUEST_IN_OUT_NODES)'
 						//		 Get Input node information
@@ -555,13 +507,8 @@ void REQUESTUSERDATA(int nRequestReason,
 						return;
 
 						default:
-							return;
-				}
-			}
+							return;}}
 			return;
-
-
-
 		case ACTION_ELEMENT_DELETE:
 			{
 				//Delete User data
@@ -576,8 +523,6 @@ void REQUESTUSERDATA(int nRequestReason,
 				*ptrUserData = NULL;
 			}
 			return;
-			
-
 		case ACTION_PARAMETERS_CHANGED:  //parameters were changed in the property dialog box.
 			{
 				if( nRequestCode == REQUEST_PARAM_INFO )
@@ -603,18 +548,8 @@ void REQUESTUSERDATA(int nRequestReason,
 							break;
 
 						case 3:
-							break;
-
-					}
-				}
-			}
-			return;
-	}
-}
-
-
-
-
+							break;}}}
+			return;}}
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -640,13 +575,9 @@ struct Internal_DLL_Block_SimulationData
 	int flag_exact_switching;
 
 };
-
-
 void OPENSIMUSER(const char *szId, const char * szNetlist, void ** ptrUserData, int *pnError, LPSTR szErrorMsg, void * pPsimParams)
 {
-
 	EXT_FUNC_PSIM_INFO * pPsimInfo = (EXT_FUNC_PSIM_INFO *)pPsimParams;
-
 
 	assert(*ptrUserData == NULL);
 	*ptrUserData = new Internal_DLL_Block_SimulationData;
@@ -654,22 +585,18 @@ void OPENSIMUSER(const char *szId, const char * szNetlist, void ** ptrUserData, 
 	Internal_DLL_Block_SimulationData * pData = (Internal_DLL_Block_SimulationData *)(*ptrUserData);
 	memset(pData, 0, sizeof(Internal_DLL_Block_SimulationData) );
 
-	
 	CNetListParams netlist;
 
 	netlist.parse_netlist(szNetlist);
 
-
 	//assert( strcmp(netlist[0],"DLL_EXT") == 0 );
 	assert( strcmp(netlist[1], szId) == 0 );
-
 
 	pData->m_nNodes  = atoi(netlist[2]); //number of nodes
 	
 	pData->m_nTmp = atoi(netlist[3]);	// netlist[3] should be 0 for Embedded Software Block
  	// netlist[4] : DLL FilePath
 
-	
 	int nParamStartIndex = 5 + pData->m_nNodes + pData->m_nTmp;
 
 	// value of parameter 1
@@ -678,24 +605,18 @@ void OPENSIMUSER(const char *szId, const char * szNetlist, void ** ptrUserData, 
 	// value of parameter 2
 	//pData->m_fVar2 = atof( netlist[nParamStartIndex+1] );
 
-
 	// Input file is always the last parameter in the netlist
 	 //strcpy( pData->m_szInputFile, netlist[ netlist.GetCount() - 1 ] );
-
 
 	//Initialization
 	pData->Vgat0 = 0.;
 	
 	*pnError = 0; //Success
 }
-
-
 void STARTSIMUSER(int *portTypes, void ** ptrUserData, int *pnError, LPSTR szErrorMsg)
 {
 	Internal_DLL_Block_SimulationData * pData = (Internal_DLL_Block_SimulationData *)(*ptrUserData);
 	if( pData == NULL) { return; }
-
-	
 //===========================================================
 // Place your code here............begin
 
@@ -711,25 +632,18 @@ void STARTSIMUSER(int *portTypes, void ** ptrUserData, int *pnError, LPSTR szErr
 
 // Place your code here............end
 //=============================================================
-
-	
 	*pnError = 0; //Success
 }
-
-
-
 void RUNSIMUSER2(double t, double delt, double *ports, double *ports2, int *portTypes, void ** ptrUserData, int *pnError, LPSTR szErrorMsg)
 {
 	Internal_DLL_Block_SimulationData * pData = (Internal_DLL_Block_SimulationData *)(*ptrUserData);
 	if( pData == NULL) { return; }
 
-	
 //===========================================================
 // Place your code here............begin
 
 	double Vm, Vcarr, Vm0, Vcarr0, Vdd;
 	int iflag;
-
 
 //	Inputs
 	Vdd = ports[0];
@@ -784,4 +698,3 @@ void CLOSESIMUSER(const char *szId, void ** ptrUserData)
 	delete pData;
 	*ptrUserData = NULL;
 }
-
