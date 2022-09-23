@@ -1,4 +1,4 @@
-<h2>how to use :</h2>
+<h2>how to install this program</h2>
 <ol>
 	<li>download this repo</li>
 	<li>extract downloaded zip file</li>
